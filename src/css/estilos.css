@@ -1,4 +1,7 @@
 /* ============ jaula pájaro ============ */
+@font-face { font-family: 'Open Sauce Sans'; src: url(/fonts/open-sauce-sans-latin-400-normal.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Open Sauce Sans'; src: url(/fonts/open-sauce-sans-latin-500-normal.woff2) format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Open Sauce Sans'; src: url(/fonts/open-sauce-sans-latin-700-normal.woff2) format('woff2'); font-weight: 700; font-display: swap; }
 :root {
   --beige: #E4D5B7;
   --celeste: #BFE3FA;
@@ -9,7 +12,7 @@
   --papel: #F7F1E4;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --bree: 'Bree Serif', Georgia, serif;
-  --mono: 'Space Mono', 'Courier New', monospace;
+  --sauce: 'Open Sauce Sans', 'Helvetica Neue', Arial, sans-serif;
   --col: 300px;
   --cab: 76px;
   --curva: cubic-bezier(.6, .05, .3, 1);
@@ -591,26 +594,31 @@ p { margin: 0; }
   .carta li p { font-size: 19px; }
 }
 
-/* ---------- tipografía de contraste (Space Mono) ---------- */
-.chico, .etiqueta, .etiqueta-campo, .formulario legend, .ficha, .nota-datos, .menu-item .num, .menu-sub, .menu-redes, .pie, .decision-titulo, .tarjeta-meta, .polaroid-pie, .paginador, .ticker, .archivo-nav .cuenta, .hojita li .n, .hojita li a, .carta-datos, .carta li > span, .poetools-lista small, .foto-nuestra .nombre, .cita-casas .firma, .nota-cabeza > a, .nota-cuerpo aside { font-family: var(--mono); }
-.chico, .etiqueta, .decision-titulo, .nota-datos, .pie, .ticker, .menu-sub, .menu-redes, .paginador, .nota-cabeza > a, .nota-cuerpo aside, .tarjeta-meta, .etiqueta-campo, .formulario legend { letter-spacing: .08em; }
+/* ---------- tipografía de contraste (Open Sauce Sans) ---------- */
+.chico, .etiqueta, .etiqueta-campo, .formulario legend, .ficha, .nota-datos, .menu-item .num, .menu-sub, .menu-redes, .pie, .decision-titulo, .tarjeta-meta, .polaroid-pie, .paginador, .ticker, .archivo-nav .cuenta, .hojita li .n, .hojita li a, .carta-datos, .carta li > span, .poetools-lista small, .foto-nuestra .nombre, .cita-casas .firma, .nota-cabeza > a, .nota-cuerpo aside { font-family: var(--sauce); }
+.chico, .etiqueta, .decision-titulo, .nota-datos, .pie, .ticker, .menu-sub, .menu-redes, .paginador, .nota-cabeza > a, .nota-cuerpo aside, .tarjeta-meta, .etiqueta-campo, .formulario legend { letter-spacing: .12em; font-weight: 500; }
 .ticker { font-size: 12px; }
-.decision .grande { font-family: var(--mono); font-weight: 700; font-size: 30px; line-height: 1.15; letter-spacing: -.02em; }
-.mandar-explica h3, .contacto-arriba h2, .nombres h2 { font-family: var(--mono); font-weight: 700; letter-spacing: -.05em; }
+.decision .grande { font-family: var(--sauce); font-weight: 500; font-size: 34px; line-height: 1.1; letter-spacing: -.035em; }
+.mandar-explica h3, .contacto-arriba h2, .nombres h2 { font-family: var(--sauce); font-weight: 500; letter-spacing: -.055em; }
+.menu-item .grande, .menu-archivo .grande { font-family: var(--sauce); font-weight: 500; font-size: 44px; letter-spacing: -.045em; }
+.mediano { font-family: var(--sauce); font-weight: 500; font-size: 30px; letter-spacing: -.03em; }
+.decision { border-top: 0; }
 .mandar-explica h3 { font-size: 72px; }
 .nombres h2 { font-size: 46px; line-height: 1.05; }
-.carta h2 { font-family: var(--mono); font-weight: 700; font-size: 26px; letter-spacing: -.02em; }
+.carta h2 { font-family: var(--sauce); font-weight: 500; font-size: 28px; letter-spacing: -.03em; }
 
 /* ---------- manifiesto: intervenciones ---------- */
 .trazo svg.sub.doble { height: .5em; bottom: -.5em; max-height: 16px; }
 .trazo svg.sub.ond { height: .3em; bottom: -.22em; }
 .resalte { background: linear-gradient(transparent 52%, rgba(191, 227, 250, .95) 52%, rgba(191, 227, 250, .95) 94%, transparent 94%) no-repeat 0 0 / 0% 100%; color: inherit; transition: background-size 1.1s var(--curva) .2s; -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 2px; }
 .resalte.visto { background-size: 100% 100%; }
-.busca { margin-top: 48px; max-width: 560px; font-family: var(--mono); font-weight: 700; font-size: clamp(30px, 3.3vw, 46px); line-height: 1.12; letter-spacing: -.04em; color: var(--rojo); }
+.busca { margin-top: 48px; max-width: 560px; font-family: var(--sauce); font-weight: 700; font-size: clamp(30px, 3.3vw, 46px); line-height: 1.12; letter-spacing: -.04em; color: var(--rojo); }
 .busca > span:first-child { display: block; margin-bottom: 10px; font-family: var(--serif); font-style: italic; font-weight: 500; font-size: .6em; letter-spacing: 0; color: var(--vino); }
 .busca .trazo svg.circ { left: -5%; top: -6%; width: 110%; height: 122%; }
 @media (max-width: 900px) {
-  .decision .grande { font-size: 24px; }
+  .decision .grande { font-size: 27px; }
+  .menu-item .grande, .menu-archivo .grande { font-size: 32px; }
+  .mediano { font-size: 26px; }
   .mandar-explica h3 { font-size: 54px; }
   .nombres h2 { font-size: 36px; }
   .busca { margin-top: 34px; font-size: 30px; }
