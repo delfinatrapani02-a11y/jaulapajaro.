@@ -19,3 +19,24 @@
 {% macro cruz(ancho=26) -%}
 <svg width="{{ ancho }}" height="{{ ancho * 0.87 }}" viewBox="0 0 30 26" aria-hidden="true"><path d="M4 3 C 11 9, 18 15, 27 23 M 27 2 C 20 8, 12 15, 3 24" fill="none" stroke="#FC0611" stroke-width="2.4" stroke-linecap="round"/></svg>
 {%- endmacro %}
+
+{#- Intervenciones que se dibujan solas cuando el texto aparece en pantalla -#}
+{% macro ondulado(texto, color="#FC0611") -%}
+<span class="trazo solo">{{ texto | safe }}<svg class="sub ond" viewBox="0 0 200 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 Q 9 2 16 9 T 30 9 T 44 9 T 58 9 T 72 9 T 86 9 T 100 9 T 114 9 T 128 9 T 142 9 T 156 9 T 170 9 T 184 9 T 198 9" pathLength="1" stroke="{{ color }}"/></svg></span>
+{%- endmacro %}
+
+{% macro doble(texto, color="#FC0611") -%}
+<span class="trazo solo">{{ texto | safe }}<svg class="sub doble" viewBox="0 0 200 24" preserveAspectRatio="none" aria-hidden="true"><path d="M 3 7 C 50 3, 120 10, 197 5 M 8 19 C 60 15, 130 21, 194 16" pathLength="1" stroke="{{ color }}"/></svg></span>
+{%- endmacro %}
+
+{% macro tachar(texto) -%}
+<span class="trazo solo">{{ texto | safe }}<svg class="tach" viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M 2 12 C 50 6, 110 14, 198 6" pathLength="1" stroke="#FC0611"/></svg></span>
+{%- endmacro %}
+
+{% macro rodear(texto, color="#FC0611") -%}
+<span class="trazo solo">{{ texto | safe }}<svg class="circ" viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M 34 14 C 88 2, 178 6, 192 32 C 204 56, 146 76, 92 74 C 34 72, 4 58, 10 38 C 16 18, 66 6, 128 9 C 166 11, 188 18, 194 24" pathLength="1" stroke="{{ color }}"/></svg></span>
+{%- endmacro %}
+
+{% macro resaltar(texto) -%}
+<mark class="resalte">{{ texto | safe }}</mark>
+{%- endmacro %}

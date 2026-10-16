@@ -13,7 +13,7 @@ seccion: archivo
       <a href="/archivo/notas/"{% if tipo == "notas" %} aria-current="page"{% endif %}>{% if tipo == "notas" %}{{ circulo("notas", fijo=true) }}{% else %}{{ subrayado("notas") }}{% endif %}<span class="cuenta">{{ collections.notas.length | dosDigitos }}</span></a>
       <a href="/archivo/entrevistas/"{% if tipo == "entrevistas" %} aria-current="page"{% endif %}>{% if tipo == "entrevistas" %}{{ circulo("entrevistas", fijo=true) }}{% else %}{{ subrayado("entrevistas") }}{% endif %}<span class="cuenta">{{ collections.entrevistas.length | dosDigitos }}</span></a>
     </nav>
-    {% if tipo == "entrevistas" %}<p class="aclaracion">Conversaciones con quienes hacen poesía todos los días, lejos del lugar mítico del poeta. Escritas, en audio o en video.</p>{% endif %}
+    {% if tipo == "entrevistas" %}<p class="aclaracion">Conversaciones con quienes hacen, leen o están cerca de la poesía.</p>{% endif %}
   </aside>
 
   <section class="grilla" aria-label="listado de {{ tipo }}">

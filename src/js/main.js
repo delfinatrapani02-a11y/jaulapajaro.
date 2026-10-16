@@ -20,6 +20,14 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) { abrir(false); boton.focus(); } });
   }
 
+  /* ---------- intervenciones del manifiesto: se dibujan solas al aparecer (compu y celu) ---------- */
+  if ('IntersectionObserver' in window) {
+    const ioSolo = new IntersectionObserver((es) => {
+      es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visto'); ioSolo.unobserve(e.target); } });
+    }, { threshold: 1, rootMargin: '0px 0px -12% 0px' });
+    document.querySelectorAll('.trazo.solo, .resalte').forEach((el) => ioSolo.observe(el));
+  }
+
   /* ---------- trazos: en el celu se dibujan solos al aparecer ---------- */
   if (sinCursor && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((es) => {

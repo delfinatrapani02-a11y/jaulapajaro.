@@ -3,7 +3,7 @@ layout: base.njk
 tema: beige
 seccion: inicio
 ---
-{%- from "trazos.njk" import subrayado, circulo, tachado -%}
+{%- from "trazos.njk" import subrayado, circulo, tachado, ondulado, doble, tachar, rodear, resaltar -%}
 <section class="portada">
   <div class="portada-col"></div>
   <div class="portada-centro">
@@ -37,17 +37,18 @@ seccion: inicio
     <span class="chico">la poesía como</span>
     <h3>{{ circulo("mirada.") }}</h3>
     <div class="prosa">
-      <p>La poesía como mirada, como acción, como respuesta, como impronta viva para afrontar lo {{ tachado("obvio") }}. Si hay poema no hay obviedad, no hay sentido común, no hay naturaleza de las cosas, no hay “porque sí”. El poema como un hacer cuestionador pero contemplativo. Aceptar e intervenir. Es la forma más liberada del lenguaje: la forma más liberada de vivir.</p>
-      <p>Una poesía no es solo palabra, ni verso ni estrofa. No es apretar “enter”. Hay algo más. Acompañanos a explorar sus diferentes formatos.</p>
+      <p>La poesía como mirada, como {{ ondulado("acción") }}, como respuesta, como impronta viva para afrontar lo {{ tachar("obvio") }}. Si hay poema no hay obviedad, no hay sentido común, no hay naturaleza de las cosas, no hay “porque sí”. El poema como un hacer cuestionador pero {{ rodear("contemplativo") }}. {{ resaltar("Aceptar e intervenir.") }} Es la forma más liberada del lenguaje: {{ doble("la forma más liberada de vivir.") }}</p>
+      <p>Una poesía no es solo palabra, ni verso ni estrofa. No es {{ tachar("apretar “enter”") }}. Hay algo más. Acompañanos a explorar sus diferentes formatos.</p>
     </div>
   </div>
   <div>
     <span class="chico">¿por qué</span>
     <h3>jaula pájaro?</h3>
     <div class="prosa">
-      <p>“La jaula se ha vuelto pájaro y se ha volado” escribió Pizarnik. Una frase que se independizó de su poema, salió volando y trascendió más allá de su origen. Lo que nos proponemos con nuestro proyecto es justamente ese movimiento. Pero ojo, no confundamos volar con escapar. Nuestro nido hace quienes somos.</p>
-      <p>Es por eso que desde nuestra jaula, léase: rutina, vida, contexto, lugar, cuerpo; podemos armar las alas que nos permitan explorar otro universo, otra jaula. “Jaula pájaro” presenta a la poesía como una mirada que puede salvarnos del imperativo de productividad, sin la necesidad de escaparle. “Jaula Pájaro” <i>busca poesía, busca poetas y busca poemas en todos lados.</i></p>
+      <p>{{ resaltar("“La jaula se ha vuelto pájaro y se ha volado”") }} escribió Pizarnik. Una frase que se independizó de su poema, salió volando y trascendió más allá de su origen. Lo que nos proponemos con nuestro proyecto es justamente ese movimiento. Pero ojo, no confundamos volar con {{ tachar("escapar") }}. {{ doble("Nuestro nido hace quienes somos.") }}</p>
+      <p>Es por eso que desde nuestra jaula, léase: {{ ondulado("rutina, vida, contexto, lugar, cuerpo") }}; podemos armar las alas que nos permitan explorar otro universo, {{ rodear("otra jaula") }}. “Jaula pájaro” presenta a la poesía como una mirada que puede salvarnos del {{ tachar("imperativo de productividad") }}, sin la necesidad de escaparle.</p>
     </div>
+    <p class="busca"><span>“Jaula Pájaro”</span> busca poesía,<br>busca poetas<br>y busca poemas<br>{{ rodear("en todos lados.") }}</p>
   </div>
 </section>
 
