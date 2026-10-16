@@ -2,7 +2,7 @@
 # Entran con su cuenta de GitHub. Reemplazá USUARIO/jaula-pajaro por el repo real.
 backend:
   name: github
-  repo: delfinatrapani02-a11y/jaula-pajaro
+  repo: delfinatrapani02-a11y/jaulapajaro.
   branch: main
   commit_messages:
     create: "nuevo: {{collection}} «{{slug}}»"
