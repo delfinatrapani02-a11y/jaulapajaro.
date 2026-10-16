@@ -1,0 +1,49 @@
+{
+  "categorias": [
+    {
+      "id": "talleres",
+      "nombre": "talleres",
+      "intro": "Espacios para escribir con otras personas, presenciales y online.",
+      "recursos": [
+        { "titulo": "[nombre del taller]", "detalle": "[quién lo coordina] · [presencial u online] · [barrio]", "link": "", "boton": "ver más ↗" },
+        { "titulo": "[nombre del taller]", "detalle": "[quién lo coordina] · [presencial u online] · [barrio]", "link": "", "boton": "ver más ↗" }
+      ]
+    },
+    {
+      "id": "editoriales",
+      "nombre": "editoriales",
+      "intro": "Dónde leer poesía nueva y dónde mandar la tuya.",
+      "recursos": [
+        { "titulo": "[nombre de la editorial]", "detalle": "[qué publican] · [convocatoria abierta o cerrada]", "link": "", "boton": "ver más ↗" },
+        { "titulo": "[nombre de la editorial]", "detalle": "[qué publican] · [convocatoria abierta o cerrada]", "link": "", "boton": "ver más ↗" }
+      ]
+    },
+    {
+      "id": "slam",
+      "nombre": "slam",
+      "intro": "Poesía dicha en voz alta, con tiempo justo y el público como jurado.",
+      "recursos": [
+        { "titulo": "[nombre del slam]", "detalle": "[frecuencia] · [lugar] · [cómo anotarse]", "link": "", "boton": "ver más ↗" }
+      ]
+    },
+    {
+      "id": "eventos",
+      "nombre": "eventos",
+      "intro": "Lecturas, ciclos y ferias para escuchar poesía en vivo.",
+      "recursos": [
+        { "titulo": "[nombre del ciclo o la lectura]", "detalle": "[fecha] · [lugar] · [entrada libre o a la gorra]", "link": "", "boton": "ver más ↗" }
+      ]
+    },
+    {
+      "id": "ejercicios",
+      "nombre": "ejercicios",
+      "intro": "Consignas para practicar la mirada. Hacelas y mandanos lo que salga.",
+      "recursos": [
+        { "titulo": "poesía encontrada", "detalle": "Copiá una frase que escuches hoy en la calle y cortala en versos.", "link": "/registro-poetico/#mandar", "boton": "mandalo →" },
+        { "titulo": "tres líneas", "detalle": "Escribí un poema de tres líneas sobre un objeto que usás todos los días.", "link": "/registro-poetico/#mandar", "boton": "mandalo →" },
+        { "titulo": "tachar para encontrar", "detalle": "Agarrá una página de diario y tachá palabras hasta que quede un poema.", "link": "/registro-poetico/#mandar", "boton": "mandalo →" },
+        { "titulo": "sin adjetivos", "detalle": "Contá el recorrido que hiciste hoy sin usar ni un adjetivo.", "link": "/registro-poetico/#mandar", "boton": "mandalo →" }
+      ]
+    }
+  ]
+}

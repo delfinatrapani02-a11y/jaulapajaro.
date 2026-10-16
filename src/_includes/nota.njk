@@ -1,0 +1,59 @@
+---
+layout: base.njk
+tema: beige
+seccion: archivo
+---
+{%- from "trazos.njk" import subrayado, ondita -%}
+{%- set lista = collections[tipo] -%}
+{%- set siguiente = lista | getNextCollectionItem(page) -%}
+{%- if not siguiente %}{% set siguiente = lista[0] if lista[0].url != page.url else null %}{% endif -%}
+<section class="nota-cabeza">
+  <a href="/archivo/{{ tipo }}/">← archivo / {{ tipo }}</a>
+  <h1>{{ titulo }}</h1>
+</section>
+
+<div class="nota-datos">
+  <span>{{ bajada }}</span>
+  <span>{{ fecha | fechaLarga }}</span>
+  <span>{% if tipo == "entrevistas" %}{{ formato }}{% if duracion %} · {{ duracion }}{% endif %}{% else %}lectura lenta · {{ content | striptags | minutos }} min{% endif %}</span>
+</div>
+
+{%- if foto %}
+<figure class="nota-portada">
+  <img src="{{ foto }}" alt="{{ foto_descripcion or '' }}">
+  {% if epigrafe %}<figcaption>{{ epigrafe }}</figcaption>{% endif %}
+</figure>
+{%- endif %}
+
+<article class="nota-cuerpo">
+  <aside>
+    {% if tema_semana %}<span>tema de la semana</span><span class="tema">{{ tema_semana }}</span>{% endif %}
+    {% if tipo == "entrevistas" and usuario %}<span>{{ rol }}</span><a class="tema" href="https://www.instagram.com/{{ usuario | replace('@', '') }}/" target="_blank" rel="noopener">{{ usuario }}</a>{% endif %}
+  </aside>
+  <div class="texto">
+    {%- if video %}
+    <iframe src="{{ video }}" title="video de la entrevista" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    {%- endif %}
+    {{ content | safe }}
+  </div>
+</article>
+
+<nav class="despues" aria-label="después de leer">
+  <a class="celeste" href="/registro-poetico/#mandar">
+    <span class="chico">{{ consigna_titulo or "la consigna de esta semana" }}</span>
+    <span class="grande">{{ subrayado(consigna or "¿viste un poema? mandalo") }}</span>
+  </a>
+  <a class="oscuro" href="/newsletter/">
+    <span class="chico">¿te gustó leer despacio?</span>
+    <span class="grande">{{ ondita("Buenasss,") }} una poesía?</span>
+    <span class="cursiva">sumate al newsletter →</span>
+  </a>
+  {%- if siguiente %}
+  <a href="{{ siguiente.url }}">
+    <span class="chico">{{ "siguiente nota" if tipo == "notas" else "siguiente entrevista" }}</span>
+    <span class="grande">{{ subrayado(siguiente.data.titulo + " →") }}</span>
+  </a>
+  {%- else %}
+  <a href="/archivo/{{ tipo }}/"><span class="chico">volver</span><span class="grande">{{ subrayado("al archivo →") }}</span></a>
+  {%- endif %}
+</nav>

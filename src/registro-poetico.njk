@@ -1,0 +1,159 @@
+---
+layout: base.njk
+tema: vino
+seccion: registro
+titulo_pagina: registro poético
+permalink: /registro-poetico/
+---
+{%- from "trazos.njk" import subrayado, circulo, cruz -%}
+{%- set paginas = collections.registro | enPaginas(3) -%}
+{%- set ultima = paginas | last -%}
+{%- set libreAparte = (not ultima) or (ultima.length >= 3) -%}
+
+<section class="registro" aria-label="registro poético">
+  <div class="registro-cabeza">
+    <div>
+      <span class="etiqueta">el cuaderno de lo encontrado</span>
+      <h1>registro poético.</h1>
+    </div>
+    <div class="registro-intro">
+      <p>Un cuaderno colectivo de poesía encontrada. Acá agregamos lo que nos mandan por el formulario, lo que llega por Instagram y lo que juntamos nosotras.</p>
+      <div class="chapitas"><span>vía formulario</span><span class="via-instagram">vía instagram</span><span class="via-nosotras">lo juntamos nosotras</span></div>
+      <a href="#mandar">{{ subrayado("sumá lo tuyo ↓") }}</a>
+    </div>
+  </div>
+
+  {%- macro lugarLibre() %}
+  <a class="lugar-libre" href="#mandar">
+    <span class="chico" style="font-size: 11px">este lugar está libre</span>
+    <span class="grande">{{ subrayado("mandanos lo que encontraste →") }}</span>
+  </a>
+  {%- endmacro %}
+
+  <div class="cuaderno">
+    {%- for pagina in paginas %}
+    <div class="hoja">
+      <span class="hoja-lomo" aria-hidden="true">{{ "registro poético" if loop.index0 % 2 == 0 else "jaula pájaro" }}</span>
+      {%- set nPag = loop.index0 %}
+      {%- for p in pagina %}
+      {%- set d = p.data %}
+      {%- set giro = (nPag * 3 + loop.index0) | giro %}
+      {%- set ficha %}{% if d.lugar %}{{ d.lugar }} · {% endif %}{% if d.firma %}{{ d.firma }} · {% endif %}{{ "lo juntamos nosotras" if d.via == "nosotras" else "vía " + d.via }}{% endset %}
+      {%- if d.tipo == "lista" %}
+      <div class="pieza pieza-lista" style="--giro: {{ giro }}">
+        {% if d.epigrafe %}<span class="chico" style="display:block;font-size:10px;margin-bottom:14px">{{ d.epigrafe }}</span>{% endif %}
+        <p>{{ d.texto }}</p>
+        <span class="ficha via-{{ d.via }}">{{ ficha | trim }}</span>
+      </div>
+      {%- elif d.foto or d.tipo == "imagen" %}
+      <figure class="pieza pieza-foto" style="--giro: {{ giro }}; margin: 0">
+        {%- if d.foto %}<img src="{{ d.foto }}" alt="{{ d.epigrafe or d.texto or 'poesía encontrada' }}" loading="lazy">{% else %}<div style="aspect-ratio: 4/3; background: #BFE3FA"></div>{% endif %}
+        {% if d.epigrafe or d.texto %}<p>{{ d.epigrafe or d.texto }}</p>{% endif %}
+        <span class="ficha via-{{ d.via }}" style="margin: 0 0 14px">{{ ficha | trim }}</span>
+      </figure>
+      {%- elif d.texto | corto %}
+      <div class="pieza pieza-grande" style="--giro: 0deg">
+        <p>{{ d.texto }}</p>
+        <span class="ficha via-{{ d.via }}" style="rotate: -2deg">{{ ficha | trim }}</span>
+      </div>
+      {%- else %}
+      <div class="pieza pieza-nota" style="--giro: {{ giro }}">
+        <p>{{ d.texto }}</p>
+        <span class="ficha via-{{ d.via }}">{{ ficha | trim }}</span>
+      </div>
+      {%- endif %}
+      {%- endfor %}
+      {%- if loop.last and not libreAparte %}{{ lugarLibre() }}{% endif %}
+      <span class="hoja-num">{{ loop.index | dosDigitos }}</span>
+    </div>
+    {%- endfor %}
+    {%- if libreAparte %}
+    <div class="hoja">
+      <span class="hoja-lomo" aria-hidden="true">jaula pájaro</span>
+      {{ lugarLibre() }}
+      <span class="hoja-num">{{ (paginas.length + 1) | dosDigitos }}</span>
+    </div>
+    {%- endif %}
+  </div>
+
+  <div class="paginador">
+    <button type="button" data-hoja="anterior">{{ subrayado("← anterior") }}</button>
+    <span class="paginador-cuenta" aria-live="polite"></span>
+    <button type="button" data-hoja="siguiente">{{ subrayado("siguiente →") }}</button>
+  </div>
+</section>
+
+<section class="mandar" id="mandar" aria-label="mandanos tu poema">
+  <div class="mandar-arriba">
+    <div class="mandar-titulo">
+      <div>
+        <span class="etiqueta">contanos</span>
+        <h2>¿qué poema encontraste hoy?</h2>
+      </div>
+      <p>Una frase en un mural, una imagen, una situación que viste en el colectivo, un póster, un cartel, un chat, un ticket. Si te hizo frenar la mirada, para nosotras es un poema.</p>
+    </div>
+    <div class="foto-casas">
+      <img src="/img/arboles.webp" alt="copas de árboles y edificios vistos desde abajo, en duotono rojo y celeste" loading="lazy">
+      <a class="cita-casas" href="https://www.eldiarioar.com/opinion/escribi_129_11785449.html" target="_blank" rel="noopener" aria-label="leer la nota de Fabián Casas en elDiarioAR">
+        <svg class="comillas comillas-abre" viewBox="0 0 60 50" aria-hidden="true"><path d="M 22 8 C 12 14, 8 24, 12 34 M 44 6 C 34 12, 30 22, 34 32"/></svg>
+        <p>Si uno no está en estado de {{ circulo("disponibilidad", "#BFE3FA") }}, los poemas pasan por todas partes y no los vemos, no los podemos capturar.<svg class="comillas comillas-cierra" viewBox="0 0 60 50" aria-hidden="true"><path d="M 16 6 C 26 12, 30 22, 26 32 M 38 4 C 48 10, 52 20, 48 30"/></svg></p>
+        <span class="firma">— fabián casas</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="mandar-abajo">
+    <div></div>
+    <div class="mandar-explica">
+      <h3>mandalo.</h3>
+      <div>
+        <p>Lo leemos todo. Si lo elegimos, aparece pegado en el cuaderno y en nuestro Instagram.</p>
+        <p>Podés firmarlo con tu nombre o tu @, o mandarlo de forma anónima.</p>
+      </div>
+    </div>
+
+    <form class="formulario" name="poesia-encontrada" method="POST" action="/gracias/" data-netlify="true" netlify-honeypot="no-completar" enctype="multipart/form-data">
+      <input type="hidden" name="form-name" value="poesia-encontrada">
+      <p class="oculto"><label>no completar <input name="no-completar" tabindex="-1" autocomplete="off"></label></p>
+      <fieldset>
+        <legend>¿qué encontraste?</legend>
+        <div class="tipos">
+          {%- for t in ["una frase", "una imagen", "una situación", "un póster", "otra cosa"] %}
+          <label><input type="radio" name="tipo" value="{{ t }}"{% if loop.first %} checked{% endif %}>{{ circulo(t) }}</label>
+          {%- endfor %}
+        </div>
+      </fieldset>
+      <label class="campo">
+        <span class="etiqueta-campo">escribilo o contalo *</span>
+        <textarea name="texto" rows="4" required placeholder="lo que leíste, escuchaste o viste, tal cual"></textarea>
+      </label>
+      <div class="fila">
+        <label class="campo">
+          <span class="etiqueta-campo">¿dónde lo encontraste?</span>
+          <input type="text" name="lugar" placeholder="una parada, un chat, una pared…">
+        </label>
+        <label class="campo campo-archivo">
+          <span class="etiqueta-campo">subí una foto o un audio</span>
+          <span class="caja-archivo">elegí un archivo (jpg, png, mp3)</span>
+          <input type="file" name="archivo" accept="image/*,audio/*">
+        </label>
+      </div>
+      <div class="fila">
+        <label class="campo">
+          <span class="etiqueta-campo">tu nombre o @ de instagram</span>
+          <input type="text" name="firma" placeholder="como querés que aparezca">
+        </label>
+        <label class="campo">
+          <span class="etiqueta-campo">tu mail (opcional)</span>
+          <input type="email" name="mail" placeholder="solo para avisarte si lo publicamos" autocomplete="email">
+        </label>
+      </div>
+      <div class="envio">
+        <label class="tilde"><input type="checkbox" name="anonimo" value="sí"><span class="cuadro">{{ cruz(18) }}</span>quiero que sea anónimo</label>
+        <button class="boton-oscuro" type="submit">{{ subrayado("mandar al registro →") }}</button>
+        <p class="gracias" role="status" tabindex="-1" hidden>¡gracias! ya lo estamos leyendo.</p>
+      </div>
+      <p class="letra-chica">* obligatorio. Al mandarlo nos das permiso para publicarlo en el sitio y en Instagram con la firma que elegiste.</p>
+    </form>
+  </div>
+</section>

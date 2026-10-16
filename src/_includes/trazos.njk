@@ -1,0 +1,21 @@
+{#- Trazos dibujados a mano. Se dibujan al pasar el cursor (compu) o al aparecer en pantalla (celu). -#}
+
+{% macro subrayado(texto, color="#FC0611") -%}
+<span class="trazo">{{ texto | safe }}<svg class="sub" viewBox="0 0 200 16" preserveAspectRatio="none" aria-hidden="true"><path d="M 4 10 C 40 4, 80 14, 120 8 S 180 6, 196 10" pathLength="1" stroke="{{ color }}"/></svg></span>
+{%- endmacro %}
+
+{% macro circulo(texto, color="#FC0611", fijo=false) -%}
+<span class="trazo">{{ texto | safe }}<svg class="circ" viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><path {% if fijo %}class="fijo" {% endif %}d="M 34 14 C 88 2, 178 6, 192 32 C 204 56, 146 76, 92 74 C 34 72, 4 58, 10 38 C 16 18, 66 6, 128 9 C 166 11, 188 18, 194 24" pathLength="1" stroke="{{ color }}"/></svg></span>
+{%- endmacro %}
+
+{% macro tachado(texto) -%}
+<span class="trazo">{{ texto | safe }}<svg class="tach" viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M 2 12 C 50 6, 110 14, 198 6" pathLength="1" stroke="#FC0611"/></svg></span>
+{%- endmacro %}
+
+{% macro ondita(texto) -%}
+<span class="ondita">{{ texto }}<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M0 10 Q 7.5 0 15 10 T 30 10 T 45 10 T 60 10 T 75 10 T 90 10 T 105 10 T 120 10 T 135 10 T 150 10 T 165 10 T 180 10 T 195 10 T 210 10 T 225 10 T 240 10 T 255 10 T 270 10 T 285 10 T 300 10"/></svg></span>
+{%- endmacro %}
+
+{% macro cruz(ancho=26) -%}
+<svg width="{{ ancho }}" height="{{ ancho * 0.87 }}" viewBox="0 0 30 26" aria-hidden="true"><path d="M4 3 C 11 9, 18 15, 27 23 M 27 2 C 20 8, 12 15, 3 24" fill="none" stroke="#FC0611" stroke-width="2.4" stroke-linecap="round"/></svg>
+{%- endmacro %}

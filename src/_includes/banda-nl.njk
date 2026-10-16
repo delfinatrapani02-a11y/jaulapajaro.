@@ -1,0 +1,9 @@
+{%- from "trazos.njk" import subrayado, ondita -%}
+<section class="banda-nl" aria-label="newsletter Buenasss, una poesía?">
+  <div class="chico">newsletter</div>
+  <a class="banda-nl-texto" href="/newsletter/">
+    <span class="titulo-nl">{{ ondita("Buenasss,") }} una poesía?</span>
+    <span class="cursiva">Un mail para leer despacio. {{ subrayado("qué trae →", "#F7F1E4") }}</span>
+  </a>
+  {% include "form-substack.njk" %}
+</section>

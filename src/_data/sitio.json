@@ -1,0 +1,16 @@
+{
+  "nombre": "jaula pájaro",
+  "descripcion": "Buscamos poesía en todos lados. Un proyecto sobre la poesía como forma de mirar el mundo cotidiano.",
+  "mail": "lajaulapajaro@gmail.com",
+  "instagram": "https://www.instagram.com/jaula.pajaro/",
+  "usuario_instagram": "@jaula.pajaro",
+  "substack": "https://jaulapajaro.substack.com",
+  "frases": [
+    { "texto": "si la prosa es una casa la poesía es alguien en llamas", "autor": "anne carson" },
+    { "texto": "a la poesía no se la define, se la reconoce", "autor": "alberto girri" },
+    { "texto": "la poesía es una utopía con respecto a la identidad", "autor": "cecilia pavón" },
+    { "texto": "la poesía es la única verdad", "autor": "gustavo cerati" },
+    { "texto": "la poesía es llenar el mundo con tontas canciones de amor", "autor": "cecilia pavón" },
+    { "texto": "la curiosidad te salva", "autor": "lucrecia martel" }
+  ]
+}

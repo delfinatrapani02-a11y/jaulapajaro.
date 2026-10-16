@@ -1,0 +1,69 @@
+---
+layout: base.njk
+tema: rojo
+seccion: poetools
+titulo_pagina: poetools
+permalink: /poetools/
+---
+{%- from "trazos.njk" import subrayado, cruz -%}
+{%- set posiciones = {
+  "talleres": ["30%", "8%", "42%", "-7deg", "0s"],
+  "editoriales": ["43.5%", "3%", "46%", "-1deg", ".06s"],
+  "slam": ["57%", "9%", "41%", "7deg", ".12s"],
+  "eventos": ["36.5%", "20%", "32%", "-3deg", ".03s"],
+  "ejercicios": ["50%", "18%", "33%", "4deg", ".09s"]
+} -%}
+{%- set extra = [["31%", "6%", "40%", "-5deg", "0s"], ["55%", "6%", "40%", "5deg", "0s"]] -%}
+<section class="poetools">
+  <h1>poetools</h1>
+  <div class="caja">
+    <div class="cuerpo">
+      <img src="/img/caja-cuerpo.webp" alt="">
+      <img class="s" src="/img/caja-sticker.webp" alt="">
+      {%- for c in poetools.categorias %}
+      {%- set p = posiciones[c.id] or extra[loop.index0 % 2] %}
+      <button type="button" class="papel" data-poetool="{{ c.id }}" aria-label="abrir {{ c.nombre }}" style="--x: {{ p[0] }}; --y: {{ p[1] }}; --h: {{ p[2] }}; --r: {{ p[3] }}; --d: {{ p[4] }}">{{ subrayado(c.nombre) }}</button>
+      {%- endfor %}
+      <img class="frente" src="/img/caja-frente.webp" alt="">
+      <img class="s frente" src="/img/caja-frente-sticker.webp" alt="">
+    </div>
+  </div>
+  <p class="pista" aria-hidden="true">tocá la caja</p>
+
+  <div class="poetools-texto">
+    <span class="chico">recursos</span>
+    <p>Una caja de herramientas para practicar la poesía: dónde escribir, leer, aprender, escuchar y recitarla.</p>
+  </div>
+
+  <nav class="poetools-lista" aria-label="categorías de poetools">
+    {%- for c in poetools.categorias %}
+    <button type="button" data-poetool="{{ c.id }}"><span class="grande">{{ c.nombre }}</span><small>{{ c.recursos.length | dosDigitos }} →</small></button>
+    {%- endfor %}
+  </nav>
+</section>
+
+<div class="velo" hidden></div>
+
+{%- for c in poetools.categorias %}
+<template id="poetool-{{ c.id }}">
+  <div class="hojita" role="dialog" aria-modal="true" aria-label="{{ c.nombre }}">
+    <div class="hojita-cabeza">
+      <div>
+        <span class="chico">poetools · {{ c.recursos.length | dosDigitos }} recursos</span>
+        <h2>{{ c.nombre }}</h2>
+      </div>
+      <button type="button" class="hojita-cerrar">{{ subrayado("volver a la caja") }}{{ cruz(20) }}</button>
+    </div>
+    <p class="hojita-intro">{{ c.intro }}</p>
+    <ol>
+      {%- for r in c.recursos %}
+      <li>
+        <span class="n">{{ loop.index | dosDigitos }}</span>
+        <div><span class="t">{{ r.titulo }}</span><span class="m">{{ r.detalle }}</span></div>
+        {%- if r.link %}<a href="{{ r.link }}"{% if r.link.startsWith('http') %} target="_blank" rel="noopener"{% endif %}>{{ subrayado(r.boton or "ver más ↗") }}</a>{% endif %}
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</template>
+{%- endfor %}

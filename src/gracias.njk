@@ -1,0 +1,12 @@
+---
+layout: base.njk
+tema: celeste
+titulo_pagina: gracias
+permalink: /gracias/
+eleventyExcludeFromCollections: true
+---
+{%- from "trazos.njk" import subrayado, circulo -%}
+<section class="cita-pizarnik" style="min-height: 60vh; justify-content: center">
+  <p>¡{{ circulo("gracias", fijo=true) }}! ya lo estamos leyendo.</p>
+  <a class="chico" href="/" style="text-decoration: none">{{ subrayado("volver al inicio →") }}</a>
+</section>

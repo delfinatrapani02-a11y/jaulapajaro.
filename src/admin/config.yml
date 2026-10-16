@@ -1,0 +1,149 @@
+# Panel de contenido de jaula pájaro (Decap CMS)
+# Entran con su cuenta de GitHub. Reemplazá USUARIO/jaula-pajaro por el repo real.
+backend:
+  name: github
+  repo: delfinatrapani02-a11y/jaula-pajaro
+  branch: main
+  commit_messages:
+    create: "nuevo: {{collection}} «{{slug}}»"
+    update: "cambio: {{collection}} «{{slug}}»"
+    delete: "borrado: {{collection}} «{{slug}}»"
+    uploadMedia: "imagen: {{path}}"
+    deleteMedia: "imagen borrada: {{path}}"
+
+locale: es
+site_url: https://jaulapajaro.netlify.app
+display_url: https://jaulapajaro.netlify.app
+media_folder: src/img/subidas
+public_folder: /img/subidas
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: notas
+    label: Notas
+    label_singular: nota
+    description: Las notas del archivo. La más nueva aparece primero.
+    folder: src/notas
+    create: true
+    identifier_field: titulo
+    slug: "{{titulo}}"
+    summary: "{{titulo}} · {{fecha}}"
+    sortable_fields: [fecha, titulo]
+    fields:
+      - { label: Título, name: titulo, widget: string }
+      - { label: "Bajada (ej: con tamara grosso)", name: bajada, widget: string, required: false }
+      - { label: Fecha, name: fecha, widget: datetime, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { label: Tema de la semana, name: tema_semana, widget: string, required: false }
+      - { label: Foto de portada, name: foto, widget: image, required: false }
+      - { label: Descripción de la foto (para quien no la ve), name: foto_descripcion, widget: string, required: false }
+      - { label: Epígrafe de la foto, name: epigrafe, widget: string, required: false }
+      - { label: Consigna del final, name: consigna, widget: string, required: false, default: "¿viste un poema? mandalo" }
+      - { label: Borrador (no se publica), name: borrador, widget: boolean, required: false, default: false }
+      - { label: Texto, name: body, widget: markdown, hint: "El primer párrafo sale más grande. Las citas (>) salen en rojo y cursiva." }
+
+  - name: entrevistas
+    label: Entrevistas
+    label_singular: entrevista
+    folder: src/entrevistas
+    create: true
+    identifier_field: titulo
+    slug: "{{titulo}}"
+    summary: "{{titulo}} · {{formato}}"
+    fields:
+      - { label: Nombre de la persona entrevistada, name: titulo, widget: string }
+      - { label: "Bajada (ej: poeta · @usuario)", name: bajada, widget: string, required: false }
+      - { label: Qué hace, name: rol, widget: string, required: false }
+      - { label: "Usuario de Instagram (con @)", name: usuario, widget: string, required: false }
+      - { label: Formato, name: formato, widget: select, options: [escrita, video, podcast, audio] }
+      - { label: "Duración (ej: 12 min)", name: duracion, widget: string, required: false }
+      - { label: Fecha, name: fecha, widget: datetime, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { label: Foto, name: foto, widget: image, required: false }
+      - { label: Descripción de la foto, name: foto_descripcion, widget: string, required: false }
+      - { label: Epígrafe, name: epigrafe, widget: string, required: false }
+      - { label: "Video (link para insertar de YouTube: https://www.youtube.com/embed/...)", name: video, widget: string, required: false }
+      - { label: Borrador (no se publica), name: borrador, widget: boolean, required: false, default: false }
+      - { label: Texto, name: body, widget: markdown }
+
+  - name: registro
+    label: Registro poético
+    label_singular: pieza
+    description: Cada pieza se pega en el cuaderno. Se ordenan de la más nueva a la más vieja, de a 3 por página.
+    folder: src/registro
+    create: true
+    identifier_field: fecha
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}{{second}}"
+    summary: "{{fecha}} · {{tipo}} · {{texto}}{{epigrafe}}"
+    fields:
+      - { label: Fecha, name: fecha, widget: datetime, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - label: Tipo
+        name: tipo
+        widget: select
+        options:
+          - { label: "frase (sale grande, en cursiva)", value: frase }
+          - { label: "situación o chat (sale en papelito con cinta)", value: situacion }
+          - { label: "imagen (sale como foto)", value: imagen }
+          - { label: "póster", value: poster }
+          - { label: "lista (hoja rayada celeste)", value: lista }
+          - { label: "otra cosa", value: otra }
+      - { label: Texto, name: texto, widget: text, required: false }
+      - { label: Foto, name: foto, widget: image, required: false }
+      - { label: "Epígrafe o título (ej: Pared en Almagro.)", name: epigrafe, widget: string, required: false }
+      - { label: "Firma (@usuario, nombre o anónimo)", name: firma, widget: string, required: false }
+      - label: Cómo llegó
+        name: via
+        widget: select
+        options:
+          - { label: vía formulario, value: formulario }
+          - { label: vía instagram, value: instagram }
+          - { label: lo juntamos nosotras, value: nosotras }
+      - { label: "Dónde (ej: el 39, una persiana)", name: lugar, widget: string, required: false }
+      - { label: Borrador (no se publica), name: borrador, widget: boolean, required: false, default: false }
+
+  - name: poetools
+    label: Poetools (la caja)
+    files:
+      - name: caja
+        label: Papeles de la caja
+        file: src/_data/poetools.json
+        fields:
+          - label: Papeles
+            name: categorias
+            widget: list
+            summary: "{{fields.nombre}}"
+            allow_add: false
+            fields:
+              - { label: "Identificador (no cambiar)", name: id, widget: hidden }
+              - { label: Nombre del papel, name: nombre, widget: string }
+              - { label: Texto de introducción, name: intro, widget: text }
+              - label: Recursos
+                name: recursos
+                widget: list
+                summary: "{{fields.titulo}}"
+                fields:
+                  - { label: Título, name: titulo, widget: string }
+                  - { label: "Detalle (quién, dónde, cuándo)", name: detalle, widget: text }
+                  - { label: Link, name: link, widget: string, required: false }
+                  - { label: Texto del botón, name: boton, widget: string, default: "ver más ↗", required: false }
+
+  - name: sitio
+    label: Datos generales
+    files:
+      - name: sitio
+        label: Frases del encabezado y redes
+        file: src/_data/sitio.json
+        fields:
+          - { label: Nombre, name: nombre, widget: hidden }
+          - { label: Descripción para buscadores, name: descripcion, widget: text }
+          - { label: Mail, name: mail, widget: string }
+          - { label: Instagram (link), name: instagram, widget: string }
+          - { label: Usuario de Instagram, name: usuario_instagram, widget: string }
+          - { label: "Link de Substack (https://xxx.substack.com)", name: substack, widget: string }
+          - label: Frases que pasan en el encabezado
+            name: frases
+            widget: list
+            summary: "{{fields.texto}} — {{fields.autor}}"
+            fields:
+              - { label: Frase, name: texto, widget: string }
+              - { label: Autor/a, name: autor, widget: string }

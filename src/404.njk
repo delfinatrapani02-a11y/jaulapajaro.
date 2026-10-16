@@ -1,0 +1,12 @@
+---
+layout: base.njk
+tema: celeste
+titulo_pagina: no encontramos esta página
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+{%- from "trazos.njk" import subrayado -%}
+<section class="cita-pizarnik" style="min-height: 60vh; justify-content: center">
+  <p>esta página se volvió pájaro y se voló</p>
+  <a class="chico" href="/" style="text-decoration: none">{{ subrayado("volver a la jaula →") }}</a>
+</section>

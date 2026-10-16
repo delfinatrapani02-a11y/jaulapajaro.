@@ -1,0 +1,88 @@
+{%- from "trazos.njk" import circulo, subrayado -%}
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if titulo_pagina %}{{ titulo_pagina }} · {% endif %}jaula pájaro</title>
+<meta name="description" content="{{ descripcion or sitio.descripcion }}">
+<meta property="og:title" content="{% if titulo_pagina %}{{ titulo_pagina }} · {% endif %}jaula pájaro">
+<meta property="og:description" content="{{ descripcion or sitio.descripcion }}">
+<meta property="og:image" content="/img/{{ og_imagen or 'nosotras.webp' }}">
+<meta name="theme-color" content="#E4D5B7">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/estilos.css">
+<script src="/js/main.js" defer></script>
+</head>
+<body class="tema-{{ tema or 'beige' }}">
+<a class="saltar" href="#contenido">saltar al contenido</a>
+
+<header class="cabecera">
+  <a class="cabecera-logo" href="/" aria-label="jaula pájaro, inicio"><img src="/img/logo.webp" alt="jaula pájaro" width="1000" height="253"></a>
+  <div class="cabecera-frases" aria-label="frases sobre poesía">
+    <div class="ticker">
+      {%- for vuelta in [1, 2] %}
+      {%- for f in sitio.frases %}
+      <span class="frase" tabindex="0"{% if vuelta == 2 %} aria-hidden="true"{% endif %}>{{ f.texto }}<span class="autor">&nbsp;— {{ f.autor }}</span></span><span class="barra" aria-hidden="true">/</span>
+      {%- endfor %}
+      {%- endfor %}
+    </div>
+  </div>
+  <button class="cabecera-menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="abrir menú">
+    <svg class="icono-abrir" width="36" height="22" viewBox="0 0 36 22" aria-hidden="true"><path d="M2 3 C 12 1, 24 4, 34 2 M3 11 C 13 12, 23 9, 33 11 M2 19 C 14 20, 22 18, 34 20" fill="none" stroke="#FC0611" stroke-width="2" stroke-linecap="round"/></svg>
+    <svg class="icono-cerrar" width="30" height="26" viewBox="0 0 30 26" aria-hidden="true"><path d="M4 3 C 11 9, 18 15, 27 23 M 27 2 C 20 8, 12 15, 3 24" fill="none" stroke="#FC0611" stroke-width="2.4" stroke-linecap="round"/></svg>
+  </button>
+
+  <nav class="menu" id="menu" aria-label="menú principal" hidden>
+    <div class="menu-items">
+      {%- for it in [["01", "manifiesto", "/#manifiesto", "inicio"]] %}
+      <a class="menu-item" href="{{ it[2] }}"{% if seccion == it[3] %} aria-current="page"{% endif %}><span class="num">{{ it[0] }}</span><span class="grande">{% if seccion == it[3] %}{{ circulo(it[1], fijo=true) }}{% else %}{{ subrayado(it[1]) }}{% endif %}</span></a>
+      {%- endfor %}
+      <div class="menu-item">
+        <span class="num">02</span>
+        <div class="menu-archivo">
+          <a class="grande" href="/archivo/notas/">{% if seccion == "archivo" %}{{ circulo("archivo", fijo=true) }}{% else %}{{ subrayado("archivo") }}{% endif %}</a>
+          <div class="menu-sub">
+            <a href="/archivo/notas/">{{ subrayado("↳ notas") }}</a>
+            <a href="/archivo/entrevistas/">{{ subrayado("↳ entrevistas") }}</a>
+          </div>
+        </div>
+      </div>
+      {%- for it in [["03", "registro poético", "/registro-poetico/", "registro"], ["04", "quiénes somos", "/quienes-somos/", "quienes"], ["05", "poetools", "/poetools/", "poetools"], ["06", "contacto", "/quienes-somos/#contacto", "contacto"]] %}
+      <a class="menu-item" href="{{ it[2] }}"{% if seccion == it[3] %} aria-current="page"{% endif %}><span class="num">{{ it[0] }}</span><span class="grande">{% if seccion == it[3] %}{{ circulo(it[1], fijo=true) }}{% else %}{{ subrayado(it[1]) }}{% endif %}</span></a>
+      {%- endfor %}
+    </div>
+    <div class="menu-lateral">
+      <a class="menu-poema" href="/registro-poetico/#mandar">
+        <span class="chico">¿viste un poema?</span>
+        <span class="mediano">{{ subrayado("mandalo al registro →") }}</span>
+      </a>
+      <div class="menu-redes">
+        <a href="{{ sitio.instagram }}" target="_blank" rel="noopener">instagram ↗ {{ sitio.usuario_instagram }}</a>
+        <a href="/newsletter/">newsletter →</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="contenido">
+{{ content | safe }}
+</main>
+
+<footer class="pie">
+  <span>© 2026 jaula pájaro</span>
+  <span>buscamos poesía en todos lados</span>
+  <div class="pie-iconos">
+    <a href="{{ sitio.instagram }}" target="_blank" rel="noopener" aria-label="instagram de jaula pájaro ({{ sitio.usuario_instagram }})">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 2.6 C 11 2.2, 14.6 2.3, 17 2.7 C 19.6 3.1, 21.1 4.6, 21.4 7.2 C 21.8 10.6, 21.7 14, 21.3 16.9 C 20.9 19.5, 19.4 21, 16.8 21.3 C 13.4 21.7, 10 21.6, 7.1 21.3 C 4.5 20.9, 3 19.4, 2.7 16.8 C 2.3 13.5, 2.4 10.2, 2.7 7.2 C 3.1 4.6, 4.6 3, 7.2 2.6 Z M 12 7.6 C 14.6 7.5, 16.5 9.4, 16.4 12 C 16.3 14.5, 14.4 16.4, 11.9 16.3 C 9.4 16.2, 7.6 14.4, 7.6 11.9 C 7.6 9.5, 9.5 7.7, 12 7.6 Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></svg>
+    </a>
+    <a href="mailto:{{ sitio.mail }}" aria-label="escribinos a {{ sitio.mail }}">
+      <svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true"><path d="M3 4.2 C 9.6 3.6, 16.4 3.7, 23 4.1 C 23.4 8.6, 23.3 13.4, 22.9 17.9 C 16.4 18.4, 9.6 18.3, 3.1 17.8 C 2.6 13.3, 2.7 8.6, 3 4.2 Z M 3.4 4.8 C 6.8 7.6, 9.8 10.1, 13 12.4 C 16.2 10.1, 19.4 7.5, 22.6 4.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</footer>
+</body>
+</html>

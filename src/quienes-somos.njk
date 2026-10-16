@@ -1,0 +1,57 @@
+---
+layout: base.njk
+tema: quienes
+seccion: quienes
+titulo_pagina: quiénes somos
+permalink: /quienes-somos/
+---
+{%- from "trazos.njk" import subrayado, circulo -%}
+<section class="quienes" aria-label="quiénes somos">
+  <h1>quiénes somos</h1>
+  <figure class="foto-nuestra">
+    <span class="nombre" style="left: 26px">(1) delfina</span>
+    <span class="nombre" style="right: 26px">(2) sofía</span>
+    <img src="/img/nosotras.webp" alt="Delfina y Sofía sentadas juntas, sonriendo, en una muestra de arte" width="1200" height="900">
+    <figcaption>en nuestro primer evento de poesía juntas :)</figcaption>
+  </figure>
+</section>
+
+<section class="nombres" aria-label="presentación">
+  <div></div>
+  <div><h2>Delfina Trápani</h2></div>
+  <div><h2>Sofía Spinelli</h2></div>
+</section>
+<section class="bio">
+  <div></div>
+  <p>Dos chicas que hablan de poesía y se conmueven con la <span style="white-space: nowrap"><em style="color: var(--rojo)">{{ circulo("ternura") }}</em>.</span> Casi licenciadas en Comunicación Social de la Universidad de Buenos Aires. Se conocieron estudiando, el amor por la literatura las juntó y este proyecto terminó de unirlas.</p>
+</section>
+
+<section class="contacto" id="contacto" aria-label="contacto">
+  <div class="contacto-arriba">
+    <div>
+      <span class="etiqueta">contacto</span>
+      <h2>escribinos.</h2>
+      <p>Para charlar, proponer una nota o entrevista, sumar un recurso o simplemente saludar.</p>
+    </div>
+    <div class="contacto-datos">
+      <a href="mailto:{{ sitio.mail }}"><span class="chico" style="font-size: 12px">mail</span><span class="dato">{{ subrayado(sitio.mail, "#F7F1E4") }}</span></a>
+      <a href="{{ sitio.instagram }}" target="_blank" rel="noopener"><span class="chico" style="font-size: 12px">instagram</span><span class="dato">{{ subrayado(sitio.usuario_instagram + " ↗", "#F7F1E4") }}</span></a>
+    </div>
+  </div>
+  <div class="contacto-abajo">
+    <div></div>
+    <form class="formulario" name="contacto" method="POST" action="/gracias/" data-netlify="true" netlify-honeypot="no-completar">
+      <input type="hidden" name="form-name" value="contacto">
+      <p class="oculto"><label>no completar <input name="no-completar" tabindex="-1" autocomplete="off"></label></p>
+      <div class="fila">
+        <label class="campo"><span class="etiqueta-campo">nombre *</span><input type="text" name="nombre" required placeholder="cómo te llamás" autocomplete="name"></label>
+        <label class="campo"><span class="etiqueta-campo">mail *</span><input type="email" name="mail" required placeholder="para poder responderte" autocomplete="email"></label>
+      </div>
+      <label class="campo"><span class="etiqueta-campo">mensaje *</span><textarea name="mensaje" rows="5" required placeholder="contanos"></textarea></label>
+      <div class="envio">
+        <button class="boton-beige" type="submit">{{ subrayado("mandar →") }}</button>
+        <p class="gracias" role="status" tabindex="-1" hidden>¡llegó! te respondemos pronto.</p>
+      </div>
+    </form>
+  </div>
+</section>

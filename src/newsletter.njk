@@ -1,0 +1,53 @@
+---
+layout: base.njk
+tema: celeste
+seccion: newsletter
+titulo_pagina: newsletter · Buenasss, una poesía?
+permalink: /newsletter/
+---
+{%- from "trazos.njk" import subrayado, circulo, ondita -%}
+<section class="nl-arriba" aria-label="suscribite">
+  <div>
+    <div>
+      <span class="etiqueta">newsletter</span>
+      <h1>{{ ondita("Buenasss,") }}<br>una poesía?</h1>
+    </div>
+    <p>Imaginate hablar de poesía una vez por semana. Bueno no te lo imagines, hacelo realidad sumándote a nuestro newsletter. Llega, lo abrís cuando tengas un rato, y pum te poetizamos la semana.</p>
+  </div>
+  <div class="nl-sumate">
+    <div class="nl-sumate-cabeza">
+      <span class="chico" style="font-size: 12px">sumate</span>
+      <p>te escribimos nosotras.</p>
+    </div>
+    <form action="{{ sitio.substack }}/api/v1/free?nojs=true" method="post" target="_blank" aria-label="suscripción al newsletter">
+      <label class="campo">
+        <span class="etiqueta-campo">tu mail *</span>
+        <input type="email" name="email" required placeholder="donde te llega la poesía" autocomplete="email">
+      </label>
+      <div class="acciones">
+        <button class="boton-oscuro" type="submit">{{ subrayado("sumarme →") }}</button>
+        <small>Se abre Substack para confirmar. Te podés dar de baja cuando quieras, con un clic.</small>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="nl-trae" aria-label="qué vas a encontrar">
+  <div><span class="chico">qué vas a<br>encontrar</span></div>
+  <div>
+    <article class="carta">
+      <div class="carta-datos">
+        <b>de</b><span>jaula pájaro · {{ sitio.mail }}</span>
+        <b>asunto</b><span>Buenasss, una poesía? · nº [01]</span>
+      </div>
+      <p class="carta-saludo">Buenasss, [nombre]. Esto es lo que juntamos para vos:</p>
+      <ol>
+        <li><span>01</span><div><h2>lo que pasó en la página</h2><p>Un resumen de todo lo nuevo: notas, entrevistas, lo que se pegó en el cuaderno de poesía encontrada y lo que sumamos a poetools.</p></div></li>
+        <li><span>02</span><div><h2>un ejercicio</h2><p>Una consigna para practicar la mirada <i>poética</i>. Si te sale algo, nos lo podés mandar.</p></div></li>
+        <li><span>03</span><div><h2>una recomendación</h2><p>Un poema, un poeta/poetisa o un poemario que nos movió algo.</p></div></li>
+        <li><span>04</span><div><h2>{{ circulo("una poesía encontrada", fijo=true) }}</h2><p>Una que encontramos nosotras o una que nos mandaron ustedes.</p></div></li>
+      </ol>
+      <p class="carta-firma">— Delfi y Sofi</p>
+    </article>
+  </div>
+</section>

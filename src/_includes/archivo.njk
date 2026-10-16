@@ -1,0 +1,42 @@
+---
+layout: base.njk
+tema: oscuro
+seccion: archivo
+---
+{%- from "trazos.njk" import subrayado, circulo -%}
+{%- set lista = collections[tipo] -%}
+<div class="archivo">
+  <aside class="archivo-lado">
+    <h1>archivo</h1>
+    <p>Notas y entrevistas sobre el hacer poético.</p>
+    <nav class="archivo-nav" aria-label="secciones del archivo">
+      <a href="/archivo/notas/"{% if tipo == "notas" %} aria-current="page"{% endif %}>{% if tipo == "notas" %}{{ circulo("notas", fijo=true) }}{% else %}{{ subrayado("notas") }}{% endif %}<span class="cuenta">{{ collections.notas.length | dosDigitos }}</span></a>
+      <a href="/archivo/entrevistas/"{% if tipo == "entrevistas" %} aria-current="page"{% endif %}>{% if tipo == "entrevistas" %}{{ circulo("entrevistas", fijo=true) }}{% else %}{{ subrayado("entrevistas") }}{% endif %}<span class="cuenta">{{ collections.entrevistas.length | dosDigitos }}</span></a>
+    </nav>
+    {% if tipo == "entrevistas" %}<p class="aclaracion">Conversaciones con quienes hacen poesía todos los días, lejos del lugar mítico del poeta. Escritas, en audio o en video.</p>{% endif %}
+  </aside>
+
+  <section class="grilla" aria-label="listado de {{ tipo }}">
+    {%- for n in lista %}
+    <a class="tarjeta" href="{{ n.url }}" style="--giro: {{ loop.index0 | giro }}; --desfase: {{ loop.index0 | desfase }}">
+      <div class="polaroid">
+        <div class="polaroid-foto" style="background: {{ '#BFE3FA' if loop.index0 % 2 else '#E4D5B7' }}">
+          {%- if n.data.foto %}
+          <img src="{{ n.data.foto }}" alt="{{ n.data.foto_descripcion or '' }}" loading="lazy">
+          {%- else %}
+          <svg viewBox="0 0 200 250" aria-hidden="true"><path d="{{ loop.index0 | garabato }}"/></svg>
+          {%- endif %}
+        </div>
+        <div class="polaroid-pie">
+          {%- if tipo == "notas" %}<span>nº {{ (lista.length - loop.index0) | dosDigitos }}</span>{% else %}<span class="formato">{{ n.data.formato }}{% if n.data.duracion %} · {{ n.data.duracion }}{% endif %}</span>{% endif %}
+          <svg class="garabato" width="74" height="30" viewBox="0 0 74 30" aria-hidden="true"><path d="M3 22 C 14 6, 22 30, 34 14 S 52 4, 58 18 M 52 10 L 70 4" pathLength="1"/></svg>
+        </div>
+      </div>
+      <span class="tarjeta-titulo">{{ n.data.titulo }}</span>
+      <span class="tarjeta-meta">{{ n.data.bajada }}</span>
+    </a>
+    {%- else %}
+    <p class="vacio">Todavía no hay {{ tipo }} publicadas. Muy pronto.</p>
+    {%- endfor %}
+  </section>
+</div>
