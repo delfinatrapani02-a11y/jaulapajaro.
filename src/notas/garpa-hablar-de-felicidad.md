@@ -1,12 +1,13 @@
 ---
-titulo: "¿garpa hablar de felicidad?"
-bajada: "con cami mermet"
+titulo: ¿garpa hablar de felicidad?
+bajada: con cami mermet
 fecha: 2026-09-12
-tema_semana: "la felicidad"
+tema_semana: la felicidad
 foto: ""
 foto_descripcion: ""
 epigrafe: ""
-consigna: "¿viste un poema? mandalo"
+consigna: ¿viste un poema? mandalo
+borrador: true
 ---
 Un párrafo de entrada que abre la nota.
 
