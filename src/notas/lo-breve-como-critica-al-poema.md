@@ -1,12 +1,13 @@
 ---
-titulo: "lo breve como crítica al poema"
-bajada: "con tamara grosso"
+titulo: lo breve como crítica al poema
+bajada: ""
 fecha: 2026-10-10
-tema_semana: "la brevedad"
+tema_semana: ""
 foto: ""
 foto_descripcion: ""
 epigrafe: ""
-consigna: "¿viste un poema? mandalo"
+consigna: ¿viste un poema? mandalo
+borrador: true
 ---
 Un poema corto no es un poema apurado. Es un poema que te pide quedarte un rato más del que tardás en leerlo.
 
