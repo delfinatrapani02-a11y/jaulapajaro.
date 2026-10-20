@@ -1,15 +1,16 @@
 ---
-titulo: "cami mermet"
+titulo: cami mermet
 bajada: "[rol] · @[usuario]"
 rol: "[rol]"
 usuario: ""
-formato: "podcast"
-duracion: "30 min"
+formato: podcast
+duracion: 30 min
 fecha: 2026-09-24
 foto: ""
 foto_descripcion: ""
 epigrafe: ""
 video: ""
+borrador: true
 ---
 **[Entrevista de muestra: reemplazala desde el panel.]**
 
