@@ -5,8 +5,48 @@
       "nombre": "talleres",
       "intro": "Espacios para escribir con otras personas, presenciales y online.",
       "recursos": [
-        { "titulo": "[nombre del taller]", "detalle": "[quién lo coordina] · [presencial u online] · [barrio]", "link": "", "boton": "ver más ↗" },
-        { "titulo": "[nombre del taller]", "detalle": "[quién lo coordina] · [presencial u online] · [barrio]", "link": "", "boton": "ver más ↗" }
+        {
+          "titulo": "“Es importante besarse bailando de vez en cuando” ",
+          "detalle": "[Flavia Calise] · [presencial y virtual] · [Caballito]",
+          "link": "https://www.instagram.com/flaviacalise/",
+          "boton": "ver más ↗"
+        },
+        {
+          "titulo": "“El silencio y lo demás”",
+          "detalle": "[Tamara Grosso] · [presencial y virtual] · [San Telmo]",
+          "link": "https://www.instagram.com/tamaraestaloca/",
+          "boton": "ver más ↗"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "“Taller de lectura y escritura de poesia” ",
+          "detalle": "[Daniel Durand] · [presencial] · [Parque Chas]",
+          "link": "https://www.instagram.com/_escuela_de_poesia_/"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "\"Otra clase de poesía\" ",
+          "detalle": "[La Ladrona de libros] · [presencial] · [Monte Castro / Floresta]",
+          "link": "https://www.instagram.com/ladridebrolis/"
+        },
+        {
+          "boton": "ver más ↗",
+          "link": "https://www.instagram.com/p/DbEPbDvxDxA/",
+          "titulo": "“Microcentro poesia”",
+          "detalle": "[Cecilia Pavón] · [presencial] · [Montserrat]"
+        },
+        {
+          "boton": "ver más ↗",
+          "link": "https://www.cultura.gob.ar/inscribite-a-los-talleres-de-la-biblioteca-nacional_5738/",
+          "titulo": "Talleres de escritura",
+          "detalle": "[Biblioteca Nacional Mariano Moreno] · [presencial] · [Recoleta]"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "\"Ni groupies ni musas\"",
+          "detalle": "[Jacqui Casais] · [presencial y virtual] · [Boedo]",
+          "link": "https://www.instagram.com/nigroupiesnimusas/?hl=es "
+        }
       ]
     },
     {
@@ -14,8 +54,48 @@
       "nombre": "editoriales",
       "intro": "Dónde leer poesía nueva y dónde mandar la tuya.",
       "recursos": [
-        { "titulo": "[nombre de la editorial]", "detalle": "[qué publican] · [convocatoria abierta o cerrada]", "link": "", "boton": "ver más ↗" },
-        { "titulo": "[nombre de la editorial]", "detalle": "[qué publican] · [convocatoria abierta o cerrada]", "link": "", "boton": "ver más ↗" }
+        {
+          "titulo": "Caleta Olivia",
+          "detalle": "[poesía contemporánea]",
+          "link": "https://caleta-olivia.com.ar/",
+          "boton": "ver más ↗"
+        },
+        {
+          "titulo": "Santos Locos",
+          "detalle": "[poesía contemporánea]",
+          "link": "https://santoslocospoesia.empretienda.com.ar/",
+          "boton": "ver más ↗"
+        },
+        {
+          "boton": "ver más ↗",
+          "detalle": "[proyectos editoriales de manufactura artesanal]",
+          "titulo": "Lumpen",
+          "link": "https://www.instagram.com/lumpen.editorialylibreria/"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "Halley ",
+          "link": "https://halleyediciones.com.ar/",
+          "detalle": "[poesía]"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "Ineditados",
+          "link": "https://www.instagram.com/ineditados/",
+          "detalle": "[poesía]"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "Aguacero",
+          "link": "https://aguaceroediciones.com/?srsltid=AYCX9vJRR1BxrlDxY7ljMMJGnBUFMXSghrwFk2EaKEhoeopaL0RtmZXg",
+          "detalle": "[literatura y poesía]"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "Vinilo Editora",
+          "detalle": "[no ficción creativa]",
+          "link": "https://www.viniloeditora.com.ar/"
+        }
       ]
     },
     {
@@ -23,7 +103,52 @@
       "nombre": "slam",
       "intro": "Poesía dicha en voz alta, con tiempo justo y el público como jurado.",
       "recursos": [
-        { "titulo": "[nombre del slam]", "detalle": "[frecuencia] · [lugar] · [cómo anotarse]", "link": "", "boton": "ver más ↗" }
+        {
+          "titulo": "Slam Santa Fé",
+          "detalle": "",
+          "link": "https://www.instagram.com/slam.santafe/?hl=es",
+          "boton": "ver más ↗"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "Slam Avellaneda",
+          "link": "https://www.instagram.com/slamavellaneda/?hl=es "
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "Slam Zona Norte",
+          "link": "https://www.instagram.com/slamzonanorte/?hl=es"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "Slam CABA ",
+          "link": "https://www.instagram.com/slam.caba/?hl=es "
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "Slam Argentina (nacional y federal) ",
+          "link": "https://www.instagram.com/slam.argentina/?hl=es"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "Slam Zona Oeste",
+          "link": "https://www.instagram.com/slamzonaoeste?hl=es"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "Slam Haedo",
+          "link": "https://www.instagram.com/slamhaedo?hl=es"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "Slam Posadas",
+          "link": "https://www.instagram.com/slam.posadas/?hl=es "
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "Slam Bariloche",
+          "link": "https://www.instagram.com/slambariloche/?hl=es "
+        }
       ]
     },
     {
@@ -31,7 +156,54 @@
       "nombre": "eventos",
       "intro": "Lecturas, ciclos y ferias para escuchar poesía en vivo.",
       "recursos": [
-        { "titulo": "[nombre del ciclo o la lectura]", "detalle": "[fecha] · [lugar] · [entrada libre o a la gorra]", "link": "", "boton": "ver más ↗" }
+        {
+          "titulo": "“Amor y Misterio”",
+          "detalle": "[itinerante] · [lugar rotativo]",
+          "link": "https://www.instagram.com/amorymisterio/",
+          "boton": "ver más ↗"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "\"La Perla Austral Poesía\"",
+          "link": "https://www.instagram.com/australaperla/",
+          "detalle": "[itinerante] · [lugar rotativo]"
+        },
+        {
+          "boton": "ver más ↗",
+          "titulo": "\"Ciclo Kul Nenas\"",
+          "link": "https://www.instagram.com/ciclokulnenas/",
+          "detalle": "[itinerante] · [lugar rotativo]"
+        },
+        {
+          "boton": "ver más ↗",
+          "link": "https://palaciolibertad.gob.ar/events/poesia-ya-ciclo-de-lectores-7/",
+          "titulo": "Festival Internacional Poesía Ya!",
+          "detalle": "[todos los juevos] · [Palacio Libertad]"
+        },
+        {
+          "boton": "ver más ↗",
+          "link": "https://institutocultural.gba.gob.ar/articulo-noticia/noticias/presentan-la-programacion-completa-del-ii-festival-bonaerense-de-poesia",
+          "titulo": "Festival Bonaerense de Poesía",
+          "detalle": "[9/11/26 y 10/11/26] · [Centro Provincial de las Artes, Teatro Argentino, La Plata]"
+        },
+        {
+          "boton": "ver más ↗",
+          "link": "https://festivalpoesiabsas.com.ar/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAaeSUhDqxKlLyNNQGlya40mII4QRPlfYhbWh9E-qsS_yn7Kca0a-BDqTwq4CpA_aem_Y9b9YdNhPiTYZw8K6srSQQ",
+          "titulo": "Festival Internacional de Poesía de Buenos Aires",
+          "detalle": "[una vez por año] · [Distintos puntos de Buenos Aires]"
+        },
+        {
+          "boton": "ver más ↗",
+          "link": "https://www.bn.gov.ar/agenda-cultural/eventos-relacionados/coliseo-de-poesia",
+          "titulo": "Coliseo de Poesía",
+          "detalle": "[encuentro periódico] · [Biblioteca Nacional Mariano Moreno]"
+        },
+        {
+          "boton": "ver más ↗",
+          "link": "https://www.instagram.com/festival.rural.de.poesia/",
+          "titulo": "Festival Rural de Poesía",
+          "detalle": "[5/12/26] · [Laguna de Lobos]"
+        }
       ]
     },
     {
@@ -39,10 +211,30 @@
       "nombre": "ejercicios",
       "intro": "Consignas para practicar la mirada. Hacelas y mandanos lo que salga.",
       "recursos": [
-        { "titulo": "poesía encontrada", "detalle": "Copiá una frase que escuches hoy en la calle y cortala en versos.", "link": "/registro-poetico/#mandar", "boton": "mandalo →" },
-        { "titulo": "tres líneas", "detalle": "Escribí un poema de tres líneas sobre un objeto que usás todos los días.", "link": "/registro-poetico/#mandar", "boton": "mandalo →" },
-        { "titulo": "tachar para encontrar", "detalle": "Agarrá una página de diario y tachá palabras hasta que quede un poema.", "link": "/registro-poetico/#mandar", "boton": "mandalo →" },
-        { "titulo": "sin adjetivos", "detalle": "Contá el recorrido que hiciste hoy sin usar ni un adjetivo.", "link": "/registro-poetico/#mandar", "boton": "mandalo →" }
+        {
+          "titulo": "poesía encontrada",
+          "detalle": "Copiá una frase que escuches hoy en la calle y cortala en versos.",
+          "link": "/registro-poetico/#mandar",
+          "boton": "mandalo →"
+        },
+        {
+          "titulo": "tres líneas",
+          "detalle": "Escribí un poema de tres líneas sobre un objeto que usás todos los días.",
+          "link": "/registro-poetico/#mandar",
+          "boton": "mandalo →"
+        },
+        {
+          "titulo": "tachar para encontrar",
+          "detalle": "Agarrá una página de diario y tachá palabras hasta que quede un poema.",
+          "link": "/registro-poetico/#mandar",
+          "boton": "mandalo →"
+        },
+        {
+          "titulo": "sin adjetivos",
+          "detalle": "Contá el recorrido que hiciste hoy sin usar ni un adjetivo.",
+          "link": "/registro-poetico/#mandar",
+          "boton": "mandalo →"
+        }
       ]
     }
   ]
