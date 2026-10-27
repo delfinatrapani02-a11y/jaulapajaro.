@@ -105,49 +105,57 @@
       "recursos": [
         {
           "titulo": "Slam Santa Fé",
-          "detalle": "",
+          "detalle": ".",
           "link": "https://www.instagram.com/slam.santafe/?hl=es",
           "boton": "ver más ↗"
         },
         {
           "boton": "ver más ↗",
           "titulo": "Slam Avellaneda",
-          "link": "https://www.instagram.com/slamavellaneda/?hl=es "
+          "link": "https://www.instagram.com/slamavellaneda/?hl=es ",
+          "detalle": "."
         },
         {
           "boton": "ver más ↗",
           "titulo": "Slam Zona Norte",
-          "link": "https://www.instagram.com/slamzonanorte/?hl=es"
+          "link": "https://www.instagram.com/slamzonanorte/?hl=es",
+          "detalle": "."
         },
         {
           "boton": "ver más ↗",
           "titulo": "Slam CABA ",
-          "link": "https://www.instagram.com/slam.caba/?hl=es "
+          "link": "https://www.instagram.com/slam.caba/?hl=es ",
+          "detalle": "."
         },
         {
           "boton": "ver más ↗",
           "titulo": "Slam Argentina (nacional y federal) ",
-          "link": "https://www.instagram.com/slam.argentina/?hl=es"
+          "link": "https://www.instagram.com/slam.argentina/?hl=es",
+          "detalle": "."
         },
         {
           "boton": "ver más ↗",
           "titulo": "Slam Zona Oeste",
-          "link": "https://www.instagram.com/slamzonaoeste?hl=es"
+          "link": "https://www.instagram.com/slamzonaoeste?hl=es",
+          "detalle": "."
         },
         {
           "boton": "ver más ↗",
           "titulo": "Slam Haedo",
-          "link": "https://www.instagram.com/slamhaedo?hl=es"
+          "link": "https://www.instagram.com/slamhaedo?hl=es",
+          "detalle": "."
         },
         {
           "boton": "ver más ↗",
           "titulo": "Slam Posadas",
-          "link": "https://www.instagram.com/slam.posadas/?hl=es "
+          "link": "https://www.instagram.com/slam.posadas/?hl=es ",
+          "detalle": "."
         },
         {
           "boton": "ver más ↗",
           "titulo": "Slam Bariloche",
-          "link": "https://www.instagram.com/slambariloche/?hl=es "
+          "link": "https://www.instagram.com/slambariloche/?hl=es ",
+          "detalle": "."
         }
       ]
     },
@@ -158,7 +166,7 @@
       "recursos": [
         {
           "titulo": "“Amor y Misterio”",
-          "detalle": "[itinerante] · [lugar rotativo]",
+          "detalle": "[intermitente] · [lugar rotativo]",
           "link": "https://www.instagram.com/amorymisterio/",
           "boton": "ver más ↗"
         },
@@ -166,19 +174,19 @@
           "boton": "ver más ↗",
           "titulo": "\"La Perla Austral Poesía\"",
           "link": "https://www.instagram.com/australaperla/",
-          "detalle": "[itinerante] · [lugar rotativo]"
+          "detalle": "[intermitante] · [lugar rotativo]"
         },
         {
           "boton": "ver más ↗",
           "titulo": "\"Ciclo Kul Nenas\"",
           "link": "https://www.instagram.com/ciclokulnenas/",
-          "detalle": "[itinerante] · [lugar rotativo]"
+          "detalle": "[intermitente] · [lugar rotativo]"
         },
         {
           "boton": "ver más ↗",
           "link": "https://palaciolibertad.gob.ar/events/poesia-ya-ciclo-de-lectores-7/",
           "titulo": "Festival Internacional Poesía Ya!",
-          "detalle": "[todos los juevos] · [Palacio Libertad]"
+          "detalle": "[todos los jueves] · [Palacio Libertad]"
         },
         {
           "boton": "ver más ↗",
@@ -190,7 +198,7 @@
           "boton": "ver más ↗",
           "link": "https://festivalpoesiabsas.com.ar/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAaeSUhDqxKlLyNNQGlya40mII4QRPlfYhbWh9E-qsS_yn7Kca0a-BDqTwq4CpA_aem_Y9b9YdNhPiTYZw8K6srSQQ",
           "titulo": "Festival Internacional de Poesía de Buenos Aires",
-          "detalle": "[una vez por año] · [Distintos puntos de Buenos Aires]"
+          "detalle": "[una vez por año] · [distintos puntos de Buenos Aires]"
         },
         {
           "boton": "ver más ↗",
