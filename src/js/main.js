@@ -132,12 +132,45 @@
     }
     const archivo = form.querySelector('input[type="file"]');
     const rotulo = form.querySelector('.caja-archivo');
+    const textoInicial = rotulo ? rotulo.textContent : '';
+    let urlPrevia = null;
+    const limpiarArchivo = (mensaje) => {
+      if (!rotulo) return;
+      if (urlPrevia) { URL.revokeObjectURL(urlPrevia); urlPrevia = null; }
+      rotulo.classList.remove('cargado', 'error-archivo');
+      rotulo.textContent = mensaje || textoInicial;
+      if (mensaje) rotulo.classList.add('error-archivo');
+    };
     if (archivo && rotulo) {
       archivo.addEventListener('change', () => {
         const f = archivo.files && archivo.files[0];
-        if (f && f.size > 8 * 1024 * 1024) { rotulo.textContent = 'ese archivo pesa más de 8 MB, probá con uno más liviano'; archivo.value = ''; return; }
-        rotulo.textContent = f ? f.name : 'elegí un archivo (jpg, png, mp3)';
+        if (!f) { limpiarArchivo(); return; }
+        if (f.size > 8 * 1024 * 1024) { archivo.value = ''; limpiarArchivo('✗ ese archivo pesa más de 8 MB, probá con uno más liviano'); return; }
+        limpiarArchivo();
+        const esImagen = f.type.startsWith('image/');
+        rotulo.textContent = '';
+        rotulo.classList.add('cargado');
+        if (esImagen) {
+          const img = document.createElement('img');
+          urlPrevia = URL.createObjectURL(f);
+          img.src = urlPrevia; img.alt = ''; img.className = 'miniatura';
+          img.onerror = () => img.remove(); // ej. fotos HEIC que el navegador no puede mostrar
+          rotulo.appendChild(img);
+        }
+        const info = document.createElement('span');
+        info.className = 'info-archivo';
+        const ok = document.createElement('strong');
+        ok.textContent = esImagen ? '✓ foto cargada' : '✓ archivo cargado';
+        const nombre = document.createElement('span');
+        nombre.className = 'nombre-archivo';
+        nombre.textContent = f.name;
+        const cambiar = document.createElement('span');
+        cambiar.className = 'cambiar-archivo';
+        cambiar.textContent = 'tocá acá para cambiarlo';
+        info.append(ok, nombre, cambiar);
+        rotulo.appendChild(info);
       });
+      form.addEventListener('reset', () => setTimeout(() => limpiarArchivo(), 0));
     }
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
