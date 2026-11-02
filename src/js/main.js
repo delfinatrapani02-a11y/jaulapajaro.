@@ -120,6 +120,35 @@
   }
 
   /* ---------- formularios (Netlify Forms) ---------- */
+  /* achica y pasa a JPG solo las imágenes que lo necesitan (pesadas o en formatos raros como HEIC) */
+  const LIVIANA = 2 * 1024 * 1024;
+  const prepararImagen = async (f) => {
+    if (!f || !f.type.startsWith('image/')) return f;
+    const comun = /^image\/(jpeg|png|gif)$/.test(f.type);
+    if (comun && f.size <= LIVIANA) return f;
+    try {
+      const url = URL.createObjectURL(f);
+      const img = new Image();
+      img.src = url;
+      await img.decode();
+      const lado = 2000;
+      const escala = Math.min(1, lado / Math.max(img.naturalWidth, img.naturalHeight));
+      const c = document.createElement('canvas');
+      c.width = Math.round(img.naturalWidth * escala);
+      c.height = Math.round(img.naturalHeight * escala);
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
+      ctx.drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(url);
+      const blob = await new Promise((ok) => c.toBlob(ok, 'image/jpeg', 0.85));
+      if (!blob || blob.size >= f.size && comun) return f;
+      const nombre = f.name.replace(/\.[^.]+$/, '') + '.jpg';
+      return new File([blob], nombre, { type: 'image/jpeg' });
+    } catch (err) {
+      return f; // si el navegador no puede leerla, se manda como está
+    }
+  };
+
   document.querySelectorAll('form[data-netlify]').forEach((form) => {
     const anon = form.querySelector('[name="anonimo"]');
     const firma = form.querySelector('[name="firma"]');
@@ -145,7 +174,8 @@
       archivo.addEventListener('change', () => {
         const f = archivo.files && archivo.files[0];
         if (!f) { limpiarArchivo(); return; }
-        if (f.size > 8 * 1024 * 1024) { archivo.value = ''; limpiarArchivo('✗ ese archivo pesa más de 8 MB, probá con uno más liviano'); return; }
+        // las imágenes pesadas se achican al mandar; el límite duro queda para audios
+        if (!f.type.startsWith('image/') && f.size > 8 * 1024 * 1024) { archivo.value = ''; limpiarArchivo('✗ ese archivo pesa más de 8 MB, probá con uno más liviano'); return; }
         limpiarArchivo();
         const esImagen = f.type.startsWith('image/');
         rotulo.textContent = '';
@@ -179,6 +209,16 @@
       const datos = new FormData(form);
       const conArchivo = !!form.querySelector('input[type="file"]');
       if (envio) { envio.disabled = true; envio.dataset.texto = envio.innerHTML; envio.textContent = 'mandando…'; }
+      const original = datos.get('archivo');
+      if (original instanceof File && original.size > 0) {
+        const lista = await prepararImagen(original);
+        if (lista.size > 8 * 1024 * 1024) {
+          if (envio) { envio.disabled = false; envio.innerHTML = envio.dataset.texto; }
+          alert('La foto pesa demasiado y no la pudimos achicar. Probá con una captura de pantalla de la foto.');
+          return;
+        }
+        if (lista !== original) datos.set('archivo', lista, lista.name);
+      }
       try {
         const r = await fetch('/', conArchivo
           ? { method: 'POST', body: datos }
