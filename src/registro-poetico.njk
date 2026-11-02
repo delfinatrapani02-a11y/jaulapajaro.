@@ -156,3 +156,24 @@ permalink: /registro-poetico/
     </form>
   </div>
 </section>
+
+<script>
+/* diagnóstico: solo se activa con ?debug en la dirección */
+(function () {
+  if (!/[?&]debug/.test(location.search)) return;
+  var caja = document.createElement('pre');
+  caja.style.cssText = 'position:fixed;left:8px;right:8px;bottom:8px;z-index:9999;max-height:45vh;overflow:auto;background:#fff;color:#000;border:2px solid #C41E2B;padding:10px;font:12px/1.4 monospace;white-space:pre-wrap';
+  var log = function (m) { caja.textContent += m + '\n'; };
+  window.addEventListener('error', function (e) { log('ERROR: ' + e.message + ' (' + (e.filename || '').split('/').pop() + ':' + e.lineno + ')'); });
+  window.addEventListener('unhandledrejection', function (e) { log('ERROR promesa: ' + (e.reason && e.reason.message || e.reason)); });
+  document.addEventListener('DOMContentLoaded', function () {
+    document.body.appendChild(caja);
+    log('navegador: ' + navigator.userAgent);
+    var inp = document.querySelector('input[type=file]');
+    var estado = function (ev) { var f = inp.files && inp.files[0]; log(ev + ' → ' + (f ? f.name + ' · ' + (f.type || 'sin tipo') + ' · ' + Math.round(f.size / 1024) + ' KB' : 'sin archivo')); };
+    ['click', 'change', 'input'].forEach(function (ev) { inp.addEventListener(ev, function () { estado(ev); }); });
+    window.addEventListener('focus', function () { setTimeout(function () { estado('volvió al sitio'); }, 400); });
+  });
+  window.addEventListener('load', function () { log('script principal: ' + (window.__jaulaJS ? 'cargado ✓' : 'NO cargó ✗')); });
+})();
+</script>
