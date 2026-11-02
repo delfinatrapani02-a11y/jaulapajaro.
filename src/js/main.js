@@ -171,11 +171,14 @@
       if (mensaje) rotulo.classList.add('error-archivo');
     };
     if (archivo && rotulo) {
-      archivo.addEventListener('change', () => {
-        const f = archivo.files && archivo.files[0];
+      let ultimoArchivo = null;
+      const actualizar = () => {
+        const f = (archivo.files && archivo.files[0]) || null;
+        if (f === ultimoArchivo) return;
+        ultimoArchivo = f;
         if (!f) { limpiarArchivo(); return; }
         // las imágenes pesadas se achican al mandar; el límite duro queda para audios
-        if (!f.type.startsWith('image/') && f.size > 8 * 1024 * 1024) { archivo.value = ''; limpiarArchivo('✗ ese archivo pesa más de 8 MB, probá con uno más liviano'); return; }
+        if (!f.type.startsWith('image/') && f.size > 8 * 1024 * 1024) { archivo.value = ''; ultimoArchivo = null; limpiarArchivo('✗ ese archivo pesa más de 8 MB, probá con uno más liviano'); return; }
         limpiarArchivo();
         const esImagen = f.type.startsWith('image/');
         rotulo.textContent = '';
@@ -199,8 +202,13 @@
         cambiar.textContent = 'tocá acá para cambiarlo';
         info.append(ok, nombre, cambiar);
         rotulo.appendChild(info);
-      });
-      form.addEventListener('reset', () => setTimeout(() => limpiarArchivo(), 0));
+      };
+      // Safari en iPhone a veces no avisa con 'change': escuchamos varios eventos y revisamos al volver del selector
+      ['change', 'input'].forEach((ev) => archivo.addEventListener(ev, actualizar));
+      window.addEventListener('focus', () => setTimeout(actualizar, 300));
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) setTimeout(actualizar, 300); });
+      archivo.addEventListener('click', () => { [600, 1500, 3000].forEach((t) => setTimeout(actualizar, t)); });
+      form.addEventListener('reset', () => setTimeout(() => { ultimoArchivo = null; limpiarArchivo(); }, 0));
     }
     form.addEventListener('submit', async (e) => {
       e.preventDefault();

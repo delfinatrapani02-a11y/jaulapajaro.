@@ -353,7 +353,9 @@ p { margin: 0; }
 .campo input:disabled { opacity: .55; }
 .campo-archivo { display: flex; flex-direction: column; gap: 10px; cursor: pointer; position: relative; }
 .campo-archivo .caja-archivo { border: 1.5px dashed var(--vino); padding: 12px 14px; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--marron); }
-.campo-archivo input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.campo-archivo { position: relative; }
+/* el input real cubre el recuadro: así en iPhone se toca el input mismo y no depende del label */
+.campo-archivo input { position: absolute; left: 0; right: 0; bottom: 0; height: 100%; max-height: 100%; width: 100%; opacity: 0; cursor: pointer; font-size: 16px; }
 .campo-archivo:focus-within .caja-archivo { outline: 2px dashed var(--rojo); outline-offset: 3px; }
 .campo-archivo .caja-archivo { cursor: pointer; }
 .campo-archivo .caja-archivo.cargado { display: flex; align-items: center; gap: 14px; border-style: solid; background: var(--papel); font-style: normal; }
