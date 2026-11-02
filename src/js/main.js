@@ -149,7 +149,7 @@
     }
   };
 
-  document.querySelectorAll('form[data-netlify]').forEach((form) => {
+  document.querySelectorAll('form.formulario, form[data-netlify]').forEach((form) => {
     const anon = form.querySelector('[name="anonimo"]');
     const firma = form.querySelector('[name="firma"]');
     if (anon && firma) {
