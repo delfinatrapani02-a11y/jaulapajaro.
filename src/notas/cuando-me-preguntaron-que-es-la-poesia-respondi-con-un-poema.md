@@ -1,6 +1,7 @@
 ---
 titulo: Cuando me preguntaron “¿qué es la poesía?” respondí con un poema
 bajada: ""
+firma: delfi
 fecha: 2026-11-05
 foto: /img/subidas/nota-inaugural.png
 foto_descripcion: ""
