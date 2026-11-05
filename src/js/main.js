@@ -242,4 +242,38 @@
     });
   });
   window.__jaulaJS = 'ok';
+  /* ---------- comentarios de las notas ---------- */
+  document.querySelectorAll('[data-comentar]').forEach((form) => {
+    const estado = form.querySelector('.comentar-estado');
+    const lista = form.closest('.comentarios').querySelector('[data-comentarios]');
+    const enviar = form.querySelector('button[type="submit"]');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const d = new FormData(form);
+      enviar.disabled = true;
+      estado.textContent = 'mandando…';
+      try {
+        const r = await fetch('/api/comentar', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ nota: form.dataset.comentar, nombre: d.get('nombre'), texto: d.get('texto'), web: d.get('web') })
+        });
+        const res = await r.json().catch(() => ({}));
+        if (!r.ok || !res.ok) throw new Error(res.error || 'error');
+        if (res.comentario) {
+          const li = document.createElement('li');
+          li.className = 'nuevo';
+          const p = document.createElement('p'); p.className = 'c-texto'; p.textContent = res.comentario.texto;
+          const s2 = document.createElement('span'); s2.className = 'c-datos'; s2.textContent = res.comentario.nombre + ' · recién llegado';
+          li.append(p, s2); lista.append(li);
+        }
+        form.reset();
+        estado.textContent = '¡gracias! en un par de minutos queda publicado para todo el mundo.';
+      } catch (err) {
+        estado.textContent = 'no se pudo mandar. probá de nuevo en un rato.';
+      } finally {
+        enviar.disabled = false;
+      }
+    });
+  });
 })();

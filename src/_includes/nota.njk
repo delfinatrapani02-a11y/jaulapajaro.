@@ -47,21 +47,35 @@ seccion: archivo
   </div>
 </article>
 
-{%- if tipo == "notas" and sitio.cusdis_app_id %}
+{%- if tipo == "notas" %}
+{%- set lista = comentarios | deLaNota(page.url) %}
 <section class="comentarios" aria-labelledby="comentarios-titulo">
   <div class="comentarios-cabeza">
     <h2 id="comentarios-titulo">¿qué te dejó esta nota?</h2>
-    <p>Los comentarios aparecen después de que los leemos. Sin apuro: acá todo va lento.</p>
+    <p>{% if lista.length %}{{ lista.length }} {{ "comentario" if lista.length == 1 else "comentarios" }}{% else %}todavía nadie comentó. ¿arrancás vos?{% endif %}</p>
   </div>
-  <div id="cusdis_thread"
-    data-host="https://cusdis.com"
-    data-app-id="{{ sitio.cusdis_app_id }}"
-    data-page-id="{{ page.url }}"
-    data-page-url="{{ sitio.url }}{{ page.url }}"
-    data-page-title="{{ titulo }}"
-    data-theme="light"></div>
-  <script defer src="https://cusdis.com/js/widget/lang/es.js"></script>
-  <script defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  <div class="comentarios-cuerpo">
+    <ol class="comentarios-lista" data-comentarios>
+      {%- for c in lista %}
+      <li><p class="c-texto">{{ c.texto }}</p><span class="c-datos">{{ c.nombre }} · {{ c.fecha | fechaLarga }}</span></li>
+      {%- endfor %}
+    </ol>
+    <form class="formulario comentar" data-comentar="{{ page.url }}">
+      <p class="oculto"><label>no completar <input name="web" tabindex="-1" autocomplete="off"></label></p>
+      <label class="campo">
+        <span class="etiqueta-campo">tu comentario *</span>
+        <textarea name="texto" rows="3" maxlength="1500" required placeholder="lo que te quedó dando vueltas"></textarea>
+      </label>
+      <div class="fila">
+        <label class="campo">
+          <span class="etiqueta-campo">tu nombre o @</span>
+          <input type="text" name="nombre" maxlength="60" placeholder="si lo dejás vacío, sale anónimo">
+        </label>
+        <div class="campo comentar-enviar"><button class="boton-oscuro" type="submit">comentar</button></div>
+      </div>
+      <p class="comentar-estado" role="status" aria-live="polite"></p>
+    </form>
+  </div>
 </section>
 {%- endif %}
 

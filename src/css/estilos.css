@@ -214,8 +214,17 @@ p { margin: 0; }
 .comentarios-cabeza { flex: 0 1 220px; }
 .comentarios-cabeza h2 { font-family: var(--serif); font-weight: 500; font-size: 40px; line-height: 1; color: var(--vino); }
 .comentarios-cabeza p { margin-top: 16px; font-family: var(--sauce); font-size: 13px; line-height: 1.6; letter-spacing: .04em; color: var(--vino); }
-#cusdis_thread { flex: 0 1 660px; min-width: 0; }
-#cusdis_thread iframe { width: 100%; border: 0; }
+.comentarios-cuerpo { flex: 0 1 660px; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+.comentarios-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 28px; }
+.comentarios-lista:empty { display: none; }
+.comentarios-lista li { border-left: 2px solid var(--rojo); padding-left: 20px; }
+.comentarios-lista li.nuevo { border-left-style: dashed; }
+.c-texto { font-family: var(--serif); font-size: 22px; line-height: 1.5; color: var(--marron); white-space: pre-line; }
+.c-datos { display: block; margin-top: 8px; font-family: var(--sauce); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--vino); }
+.comentar { border-top: 1px solid var(--vino); }
+.comentar-enviar { display: flex; align-items: center; justify-content: flex-end; }
+.comentar-estado { padding: 12px 24px 0; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--vino); }
+.comentar-estado:empty { display: none; }
 .nota-cuerpo { display: flex; flex-wrap: wrap; justify-content: center; gap: 56px; padding: 96px 28px 120px; }
 .nota-cuerpo aside { flex: 0 1 220px; display: flex; flex-direction: column; gap: 12px; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; line-height: 1.7; }
 .nota-cuerpo aside .tema { font-family: var(--serif); font-size: 26px; letter-spacing: 0; text-transform: none; line-height: 1.1; }
@@ -517,6 +526,8 @@ p { margin: 0; }
   .comentarios { padding: 48px 20px 64px; gap: 24px; }
   .comentarios-cabeza { flex-basis: 100%; }
   .comentarios-cabeza h2 { font-size: 32px; }
+  .comentar-enviar { justify-content: flex-start; }
+  .c-texto { font-size: 20px; }
   .nota-cuerpo { padding: 48px 20px 72px; gap: 28px; }
   .nota-cuerpo aside { flex-basis: 100%; }
   .texto { font-size: 21px; gap: 22px; }

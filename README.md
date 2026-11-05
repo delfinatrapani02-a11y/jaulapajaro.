@@ -29,13 +29,13 @@ Las fotos que suben desde el panel quedan en `src/img/subidas/`.
 
 En el panel, cada nota tiene el campo **Firma**: Delfi, Sofi o Las dos. Aparece al costado del texto con la firma a mano (`src/img/firmas/firma-delfi.svg` y `firma-sofi.svg`). Si se deja vacío, no sale nada.
 
-## Comentarios (Cusdis, con moderación)
+## Comentarios de las notas
 
-Las notas tienen comentarios con [Cusdis](https://cusdis.com). Ningún comentario se publica hasta que lo aprueban.
+Se publican solos: quien comenta lo ve al instante y para todo el mundo aparece en 1 o 2 minutos (el comentario se guarda en `src/_data/comentarios/` y Netlify republica).
 
-1. Crear cuenta en cusdis.com → *New website* → copiar el **App ID**.
-2. En el panel: *Datos generales* → pegar el App ID en **App ID de Cusdis** y guardar. Hasta que no esté, la sección de comentarios no aparece.
-3. Para moderar: entrar a cusdis.com → el sitio → aprobar o borrar. En *Settings* se puede activar que avise por mail cuando llega un comentario (y aprobarlo desde el mail).
+- **Moderar:** en el panel → *Comentarios*. Para sacar uno, marcar **Oculto** o borrarlo.
+- **Anti-spam:** campo trampa invisible y límite de 1500 caracteres.
+- **Requisito (una vez):** variable `GITHUB_TOKEN` en Netlify, con un token de GitHub que pueda escribir en este repo (*Settings → Developer settings → Fine-grained tokens*, solo este repo, permiso *Contents: Read and write*). Sin eso, el formulario avisa que no se pudo mandar.
 
 ## Configuración en Netlify (una sola vez)
 
