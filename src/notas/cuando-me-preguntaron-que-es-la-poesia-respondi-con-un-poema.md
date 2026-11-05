@@ -1,8 +1,6 @@
 ---
 titulo: Cuando me preguntaron “¿qué es la poesía?” respondí con un poema
-bajada: "“¿Qué es la poesía?” que pregunta tan general, abstracta e imposible
-  para empezar la primera nota de Jaula Pájaro. Pero creo en el poder de la
-  poesía, de los poemas y de los poetas para responderse a sí mismos. "
+bajada: ""
 fecha: 2026-11-05
 foto: /img/subidas/nota-inaugural.png
 foto_descripcion: ""
@@ -10,6 +8,8 @@ epigrafe: mirar donde nadie mira
 consigna: ¿qué es la poesía para vos? mandanos tu respuesta al registro
 borrador: false
 ---
+“¿Qué es la poesía?” que pregunta tan general, abstracta e imposible para empezar la primera nota de Jaula Pájaro. Pero creo en el poder de la poesía, de los poemas y de los poetas para responderse a sí mismos. 
+
 Era mi primer taller de poesía y el primer ejercicio—más bien una reflexión— consistía en responder a esta pregunta disfrazada de simpleza. No me salió otra cosa que no sea escribir un poema. Es como preguntarnos que es el color negro, ¿como respondemos sin decir el color negro es el color negro? Cuando algo no se puede definir su esencia misma lo define, ¿muy trillado no? Pero es un poco verdad. Pasan cosas en el cuerpo cuando uno lee o ve un poema, hay un sensación física. Por ejemplo, Baldomero Fernández Moreno, escribió: 
 
 “Ante la poesía, tanto da temblar como comprender”.
