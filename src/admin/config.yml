@@ -34,6 +34,15 @@ collections:
     fields:
       - { label: Título, name: titulo, widget: string }
       - { label: "Bajada (ej: con tamara grosso)", name: bajada, widget: string, required: false }
+      - label: Firma
+        name: firma
+        widget: select
+        required: false
+        hint: "Quién escribió la nota. Aparece al costado del texto, con la firma a mano."
+        options:
+          - { label: Delfi, value: delfi }
+          - { label: Sofi, value: sofi }
+          - { label: Las dos, value: las-dos }
       - { label: Fecha, name: fecha, widget: datetime, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
       - { label: Tema de la semana, name: tema_semana, widget: string, required: false }
       - { label: Foto de portada, name: foto, widget: image, required: false }
@@ -140,6 +149,8 @@ collections:
           - { label: Instagram (link), name: instagram, widget: string }
           - { label: Usuario de Instagram, name: usuario_instagram, widget: string }
           - { label: "Link de Substack (https://xxx.substack.com)", name: substack, widget: string }
+          - { label: "Dirección del sitio (sin / al final)", name: url, widget: string }
+          - { label: "App ID de Cusdis (comentarios en las notas; vacío = sin comentarios)", name: cusdis_app_id, widget: string, required: false }
           - label: Frases que pasan en el encabezado
             name: frases
             widget: list

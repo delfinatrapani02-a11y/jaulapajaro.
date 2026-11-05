@@ -1,3 +1,5 @@
+import fs from "node:fs";
+
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/css");
@@ -46,6 +48,15 @@ export default function (eleventyConfig) {
     return new Date(d).toLocaleDateString("es-AR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
   });
   eleventyConfig.addFilter("minutos", (texto) => Math.max(1, Math.round(String(texto || "").split(/\s+/).length / 180)));
+  // firma de la nota: delfi, sofi o las-dos → lista con nombre y svg (si ya está subido)
+  const nombresFirma = { delfi: "Delfi", sofi: "Sofi" };
+  eleventyConfig.addFilter("firmas", (valor) => {
+    const quienes = valor === "las-dos" ? ["delfi", "sofi"] : nombresFirma[valor] ? [valor] : [];
+    return quienes.map((q) => ({
+      nombre: nombresFirma[q],
+      src: fs.existsSync(`src/img/firmas/firma-${q}.svg`) ? `/img/firmas/firma-${q}.svg` : null
+    }));
+  });
   eleventyConfig.addFilter("corto", (t) => String(t || "").length < 70);
 
   return {

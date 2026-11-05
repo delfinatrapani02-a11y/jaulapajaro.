@@ -25,6 +25,18 @@ Las fotos que suben desde el panel quedan en `src/img/subidas/`.
 - **¿qué poema encontraste hoy?** (`poesia-encontrada`) y **contacto** usan Netlify Forms. Las respuestas llegan en Netlify → el sitio → *Forms*. Ahí se puede activar que lleguen por mail.
 - El **newsletter** manda a Substack. El link se cambia en *Datos generales*.
 
+## Firma de las notas
+
+En el panel, cada nota tiene el campo **Firma**: Delfi, Sofi o Las dos. Aparece al costado del texto con la firma a mano (`src/img/firmas/firma-delfi.svg` y `firma-sofi.svg`). Si se deja vacío, no sale nada.
+
+## Comentarios (Cusdis, con moderación)
+
+Las notas tienen comentarios con [Cusdis](https://cusdis.com). Ningún comentario se publica hasta que lo aprueban.
+
+1. Crear cuenta en cusdis.com → *New website* → copiar el **App ID**.
+2. En el panel: *Datos generales* → pegar el App ID en **App ID de Cusdis** y guardar. Hasta que no esté, la sección de comentarios no aparece.
+3. Para moderar: entrar a cusdis.com → el sitio → aprobar o borrar. En *Settings* se puede activar que avise por mail cuando llega un comentario (y aprobarlo desde el mail).
+
 ## Configuración en Netlify (una sola vez)
 
 1. Netlify → *Add new site* → *Import from Git* → elegir este repo. La configuración ya está en `netlify.toml` (no hay que tocar nada).

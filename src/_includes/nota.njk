@@ -28,6 +28,15 @@ seccion: archivo
 <article class="nota-cuerpo">
   <aside>
     {% if tema_semana %}<span>tema de la semana</span><span class="tema">{{ tema_semana }}</span>{% endif %}
+    {%- set quienes = firma | firmas %}
+    {%- if quienes.length %}
+    <span>escrita por</span>
+    <span class="firmas">
+      {%- for f in quienes %}
+      {%- if f.src %}<img class="firma" src="{{ f.src }}" alt="{{ f.nombre }}" loading="lazy">{% else %}<span class="tema">{{ f.nombre }}</span>{% endif %}
+      {%- endfor %}
+    </span>
+    {%- endif %}
     {% if tipo == "entrevistas" and usuario %}<span>{{ rol }}</span><a class="tema" href="https://www.instagram.com/{{ usuario | replace('@', '') }}/" target="_blank" rel="noopener">{{ usuario }}</a>{% endif %}
   </aside>
   <div class="texto">
@@ -37,6 +46,24 @@ seccion: archivo
     {{ content | safe }}
   </div>
 </article>
+
+{%- if tipo == "notas" and sitio.cusdis_app_id %}
+<section class="comentarios" aria-labelledby="comentarios-titulo">
+  <div class="comentarios-cabeza">
+    <h2 id="comentarios-titulo">¿qué te dejó esta nota?</h2>
+    <p>Los comentarios aparecen después de que los leemos. Sin apuro: acá todo va lento.</p>
+  </div>
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="{{ sitio.cusdis_app_id }}"
+    data-page-id="{{ page.url }}"
+    data-page-url="{{ sitio.url }}{{ page.url }}"
+    data-page-title="{{ titulo }}"
+    data-theme="light"></div>
+  <script defer src="https://cusdis.com/js/widget/lang/es.js"></script>
+  <script defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</section>
+{%- endif %}
 
 <nav class="despues" aria-label="después de leer">
   <a class="celeste" href="/registro-poetico/#mandar">
