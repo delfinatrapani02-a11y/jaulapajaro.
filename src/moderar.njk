@@ -1,0 +1,68 @@
+---
+layout: base.njk
+tema: beige
+titulo_pagina: moderar comentarios
+permalink: /moderar/
+sin_indexar: true
+eleventyExcludeFromCollections: true
+---
+<section class="moderar">
+  <h1>moderar comentarios</h1>
+  <form class="formulario moderar-clave" data-moderar-clave>
+    <label class="campo">
+      <span class="etiqueta-campo">clave de moderación</span>
+      <input type="password" name="clave" autocomplete="current-password" required>
+    </label>
+    <div class="campo comentar-enviar"><button class="boton-oscuro" type="submit">entrar</button></div>
+  </form>
+  <p class="comentar-estado" data-moderar-estado role="status" aria-live="polite"></p>
+  <ol class="moderar-lista" data-moderar-lista></ol>
+</section>
+<script>
+(function () {
+  const form = document.querySelector('[data-moderar-clave]');
+  const estado = document.querySelector('[data-moderar-estado]');
+  const lista = document.querySelector('[data-moderar-lista]');
+  let clave = '';
+  try { clave = sessionStorage.getItem('jp-clave') || ''; } catch (e) {}
+
+  const pedir = (metodo, cuerpo) => fetch('/api/comentarios' + (metodo === 'GET' ? '?todos=1' : ''), {
+    method: metodo,
+    headers: { 'content-type': 'application/json', 'x-clave': clave },
+    body: cuerpo ? JSON.stringify(cuerpo) : undefined
+  }).then((r) => (r.status === 401 ? Promise.reject('clave') : r.json()));
+
+  const boton = (texto, accion) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'boton-claro'; b.textContent = texto; b.onclick = accion; return b; };
+
+  const cargar = () => {
+    estado.textContent = 'cargando…';
+    pedir('GET').then((res) => {
+      try { sessionStorage.setItem('jp-clave', clave); } catch (e) {}
+      form.hidden = true;
+      lista.replaceChildren();
+      const cs = (res.comentarios || []).reverse();
+      estado.textContent = cs.length ? cs.length + ' comentarios (los más nuevos primero)' : 'todavía no hay comentarios.';
+      cs.forEach((c) => {
+        const li = document.createElement('li');
+        if (c.oculto) li.className = 'esta-oculto';
+        const t = document.createElement('p'); t.className = 'c-texto'; t.textContent = c.texto;
+        const d = document.createElement('span'); d.className = 'c-datos';
+        d.textContent = c.nombre + ' · ' + new Date(c.fecha).toLocaleString('es-AR') + ' · ' + c.nota.split('/')[3] + (c.oculto ? ' · OCULTO' : '');
+        const acciones = document.createElement('div'); acciones.className = 'moderar-acciones';
+        acciones.append(
+          boton(c.oculto ? 'mostrar' : 'ocultar', () => pedir('PATCH', { clave: c.clave, oculto: !c.oculto }).then(cargar)),
+          boton('borrar', () => { if (confirm('¿borrar este comentario para siempre?')) pedir('DELETE', { clave: c.clave }).then(cargar); })
+        );
+        li.append(t, d, acciones);
+        lista.append(li);
+      });
+    }).catch((e) => {
+      form.hidden = false;
+      estado.textContent = e === 'clave' ? 'clave incorrecta.' : 'no se pudo cargar. probá de nuevo.';
+    });
+  };
+
+  form.addEventListener('submit', (e) => { e.preventDefault(); clave = new FormData(form).get('clave'); cargar(); });
+  if (clave) cargar();
+})();
+</script>

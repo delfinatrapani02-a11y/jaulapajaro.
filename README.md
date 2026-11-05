@@ -31,11 +31,11 @@ En el panel, cada nota tiene el campo **Firma**: Delfi, Sofi o Las dos. Aparece 
 
 ## Comentarios de las notas
 
-Se publican solos: quien comenta lo ve al instante y para todo el mundo aparece en 1 o 2 minutos (el comentario se guarda en `src/_data/comentarios/` y Netlify republica).
+Se publican al instante. Se guardan en Netlify (Netlify Blobs), no en el repo, así que no hace falta ningún token de GitHub.
 
-- **Moderar:** en el panel → *Comentarios*. Para sacar uno, marcar **Oculto** o borrarlo.
+- **Moderar:** entrar a **`/moderar`** del sitio, poner la clave, y ocultar o borrar comentarios.
+- **La clave (una vez):** en Netlify → el sitio → *Site configuration → Environment variables → Add a variable*. Key: `MODERAR_CLAVE`, value: una contraseña inventada. Después *Deploys → Trigger deploy*. Sin esa variable los comentarios funcionan igual, pero no se puede moderar.
 - **Anti-spam:** campo trampa invisible y límite de 1500 caracteres.
-- **Requisito (una vez):** variable `GITHUB_TOKEN` en Netlify, con un token de GitHub que pueda escribir en este repo (*Settings → Developer settings → Fine-grained tokens*, solo este repo, permiso *Contents: Read and write*). Sin eso, el formulario avisa que no se pudo mandar.
 
 ## Configuración en Netlify (una sola vez)
 

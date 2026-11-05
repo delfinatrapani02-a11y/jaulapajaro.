@@ -110,24 +110,6 @@ collections:
       - { label: "Dónde (ej: el 39, una persiana)", name: lugar, widget: string, required: false }
       - { label: Borrador (no se publica), name: borrador, widget: boolean, required: false, default: false }
 
-  - name: comentarios
-    label: Comentarios
-    label_singular: comentario
-    description: "Los comentarios de las notas se publican solos. Para sacar uno, marcalo como oculto o borralo."
-    folder: src/_data/comentarios
-    extension: json
-    format: json
-    create: false
-    identifier_field: nombre
-    summary: "{{fecha}} · {{nombre}} · {{nota}}"
-    sortable_fields: [fecha, nombre]
-    fields:
-      - { label: "Nota (no cambiar)", name: nota, widget: string }
-      - { label: Nombre, name: nombre, widget: string }
-      - { label: Fecha, name: fecha, widget: datetime }
-      - { label: Comentario, name: texto, widget: text }
-      - { label: "Oculto (no se muestra en el sitio)", name: oculto, widget: boolean, required: false, default: false }
-
   - name: poetools
     label: Poetools (la caja)
     files:

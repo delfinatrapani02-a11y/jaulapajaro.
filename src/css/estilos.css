@@ -661,3 +661,13 @@ p { margin: 0; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .atras { display: none; }
 }
+
+/* ---------- moderar comentarios ---------- */
+.moderar { max-width: 860px; margin: 0 auto; padding: 64px 28px 120px; display: flex; flex-direction: column; gap: 28px; }
+.moderar h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(44px, 7vw, 80px); line-height: .95; color: var(--vino); }
+.moderar-clave { border-top: 1px solid var(--vino); }
+.moderar-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 28px; }
+.moderar-lista li { border-left: 2px solid var(--rojo); padding-left: 20px; }
+.moderar-lista li.esta-oculto { opacity: .5; border-left-style: dashed; }
+.moderar-acciones { display: flex; gap: 10px; margin-top: 12px; }
+.moderar-acciones .boton-claro { font-size: 20px; min-height: 40px; padding: 8px 16px; border: 1px solid var(--vino); }

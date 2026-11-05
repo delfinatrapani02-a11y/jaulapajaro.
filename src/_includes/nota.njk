@@ -48,18 +48,13 @@ seccion: archivo
 </article>
 
 {%- if tipo == "notas" %}
-{%- set lista = comentarios | deLaNota(page.url) %}
 <section class="comentarios" aria-labelledby="comentarios-titulo">
   <div class="comentarios-cabeza">
     <h2 id="comentarios-titulo">¿qué te dejó esta nota?</h2>
-    <p>{% if lista.length %}{{ lista.length }} {{ "comentario" if lista.length == 1 else "comentarios" }}{% else %}todavía nadie comentó. ¿arrancás vos?{% endif %}</p>
+    <p data-cuenta>cargando comentarios…</p>
   </div>
   <div class="comentarios-cuerpo">
-    <ol class="comentarios-lista" data-comentarios>
-      {%- for c in lista %}
-      <li><p class="c-texto">{{ c.texto }}</p><span class="c-datos">{{ c.nombre }} · {{ c.fecha | fechaLarga }}</span></li>
-      {%- endfor %}
-    </ol>
+    <ol class="comentarios-lista" data-comentarios></ol>
     <form class="formulario comentar" data-comentar="{{ page.url }}">
       <p class="oculto"><label>no completar <input name="web" tabindex="-1" autocomplete="off"></label></p>
       <label class="campo">

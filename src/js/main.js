@@ -243,32 +243,46 @@
   });
   window.__jaulaJS = 'ok';
   /* ---------- comentarios de las notas ---------- */
+  const fechaCorta = (f) => new Date(f).toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });
+  const itemComentario = (c, nuevo) => {
+    const li = document.createElement('li');
+    if (nuevo) li.className = 'nuevo';
+    const p = document.createElement('p'); p.className = 'c-texto'; p.textContent = c.texto;
+    const s2 = document.createElement('span'); s2.className = 'c-datos'; s2.textContent = c.nombre + ' · ' + (nuevo ? 'recién publicado' : fechaCorta(c.fecha));
+    li.append(p, s2);
+    return li;
+  };
   document.querySelectorAll('[data-comentar]').forEach((form) => {
+    const nota = form.dataset.comentar;
+    const caja = form.closest('.comentarios');
+    const lista = caja.querySelector('[data-comentarios]');
+    const cuenta = caja.querySelector('[data-cuenta]');
     const estado = form.querySelector('.comentar-estado');
-    const lista = form.closest('.comentarios').querySelector('[data-comentarios]');
     const enviar = form.querySelector('button[type="submit"]');
+    let total = 0;
+    const contar = () => { cuenta.textContent = total ? total + (total === 1 ? ' comentario' : ' comentarios') : 'todavía nadie comentó. ¿arrancás vos?'; };
+
+    fetch('/api/comentarios?nota=' + encodeURIComponent(nota))
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((res) => { (res.comentarios || []).forEach((c) => lista.append(itemComentario(c))); total = (res.comentarios || []).length; contar(); })
+      .catch(() => { cuenta.textContent = 'no pudimos cargar los comentarios'; });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const d = new FormData(form);
       enviar.disabled = true;
       estado.textContent = 'mandando…';
       try {
-        const r = await fetch('/api/comentar', {
+        const r = await fetch('/api/comentarios', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ nota: form.dataset.comentar, nombre: d.get('nombre'), texto: d.get('texto'), web: d.get('web') })
+          body: JSON.stringify({ nota, nombre: d.get('nombre'), texto: d.get('texto'), web: d.get('web') })
         });
         const res = await r.json().catch(() => ({}));
         if (!r.ok || !res.ok) throw new Error(res.error || 'error');
-        if (res.comentario) {
-          const li = document.createElement('li');
-          li.className = 'nuevo';
-          const p = document.createElement('p'); p.className = 'c-texto'; p.textContent = res.comentario.texto;
-          const s2 = document.createElement('span'); s2.className = 'c-datos'; s2.textContent = res.comentario.nombre + ' · recién llegado';
-          li.append(p, s2); lista.append(li);
-        }
+        if (res.comentario) { lista.append(itemComentario(res.comentario, true)); total++; contar(); }
         form.reset();
-        estado.textContent = '¡gracias! en un par de minutos queda publicado para todo el mundo.';
+        estado.textContent = '¡gracias! ya quedó publicado.';
       } catch (err) {
         estado.textContent = 'no se pudo mandar. probá de nuevo en un rato.';
       } finally {

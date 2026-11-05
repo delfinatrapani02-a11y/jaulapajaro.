@@ -57,12 +57,6 @@ export default function (eleventyConfig) {
       src: fs.existsSync(`src/img/firmas/firma-${q}.svg`) ? `/img/firmas/firma-${q}.svg` : null
     }));
   });
-  // comentarios de una nota, del más viejo al más nuevo
-  eleventyConfig.addFilter("deLaNota", (todos, url) =>
-    Object.values(todos || {})
-      .filter((c) => c && c.nota === url && !c.oculto)
-      .sort((a, b) => new Date(a.fecha) - new Date(b.fecha))
-  );
   eleventyConfig.addFilter("corto", (t) => String(t || "").length < 70);
 
   return {
