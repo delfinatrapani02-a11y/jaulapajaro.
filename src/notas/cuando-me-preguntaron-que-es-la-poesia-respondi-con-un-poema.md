@@ -1,6 +1,6 @@
 ---
 titulo: Cuando me preguntaron “¿qué es la poesía?” respondí con un poema
-bajada: ""
+bajada: ¡hola, potenciales poetas!
 firma: delfi
 fecha: 2026-11-05
 foto: /img/subidas/nota-inaugural.png
