@@ -27,7 +27,6 @@ seccion: archivo
 
 <article class="nota-cuerpo">
   <aside>
-    {% if tema_semana %}<span>tema de la semana</span><span class="tema">{{ tema_semana }}</span>{% endif %}
     {%- set quienes = firma | firmas %}
     {%- if quienes.length %}
     <span>escrita por</span>
@@ -37,6 +36,7 @@ seccion: archivo
       {%- endfor %}
     </span>
     {%- endif %}
+    {% if tema_semana %}<span>tema de la semana</span><span class="tema">{{ tema_semana }}</span>{% endif %}
     {% if tipo == "entrevistas" and usuario %}<span>{{ rol }}</span><a class="tema" href="https://www.instagram.com/{{ usuario | replace('@', '') }}/" target="_blank" rel="noopener">{{ usuario }}</a>{% endif %}
   </aside>
   <div class="texto">
