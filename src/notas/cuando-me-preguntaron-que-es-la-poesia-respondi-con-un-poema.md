@@ -11,7 +11,7 @@ borrador: false
 ---
 “¿Qué es la poesía?” que pregunta tan general, abstracta e imposible para empezar la primera nota de Jaula Pájaro. Pero creo en el poder de la poesía, de los poemas y de los poetas para responderse a sí mismos. 
 
-Era mi primer taller de poesía y el primer ejercicio—más bien una reflexión— consistía en responder a esta pregunta disfrazada de simpleza. No me salió otra cosa que no sea escribir un poema. Es como preguntarnos que es el color negro, ¿como respondemos sin decir el color negro es el color negro? Cuando algo no se puede definir su esencia misma lo define, ¿muy trillado no? Pero es un poco verdad. Pasan cosas en el cuerpo cuando uno lee o ve un poema, hay un sensación física. Por ejemplo, Baldomero Fernández Moreno, escribió: 
+Era mi primer taller de poesía y el primer ejercicio—más bien una reflexión— consistía en responder a esta pregunta disfrazada de simpleza. No me salió otra cosa que no sea escribir un poema. Es como preguntarnos que es el color rojo, ¿como respondemos sin decir el color rojo es el color rojo? Cuando algo no se puede definir su esencia misma lo define, ¿muy trillado no? Pero es un poco verdad. Pasan cosas en el cuerpo cuando uno lee o ve un poema, hay un sensación física. Por ejemplo, Baldomero Fernández Moreno, escribió: 
 
 > “Ante la poesía, tanto da temblar como comprender”.
 
@@ -19,7 +19,7 @@ O también Jorge Luis Borges: 
 
 > “Sentimos la poesía como sentimos la cercanía de una mujer, o como sentimos una montaña o una bahía. Si la sentimos inmediatamente, ¿a qué diluirla en otras palabras, que sin duda serán más débiles que nuestros sentimientos?”
 
-La mandarina tiene gusto a mandarina. Es una fruta que tiene gusto a mandarina. El sabor de la mandarina es ácido, es fuerte, pero sigue siendo sabor a mandarina. El color negro es color negro y la poesía es poesía. Reiteramos la pregunta de Borges: ¿por qué diluirla en otras palabras? 
+La mandarina tiene gusto a mandarina. Es una fruta que tiene gusto a mandarina. El sabor de la mandarina es ácido, es fuerte, pero sigue siendo sabor a mandarina. Un sabor que únicamente lo conocés si lo probás. El rojo es un color primario que únicamente lo conocés si lo mirás. Entramos en el plano de la experiencia, de la práctica. El color rojo es color rojo y la poesía es poesía. Pero, reiteramos la pregunta de Borges, ¿por qué diluirla en otras palabras? 
 
 En *Poesía estructurada,* Cecilia Pavón, se propone “estructurar el poema en un andamio de aire” y pensar muchísimo antes de escribir, “sin borrar nada”. Sale con sus cuadernos viejos y ya escritos, se sienta en diferentes cafés de Buenos Aires y hace un ejercicio: piensa una pregunta, abre su cuaderno y el poema que primero aparezca funciona como respuesta. Su propia poesía– que en algunos casos escribió en su adolescencia– le responde a su propia pregunta del presente. En la vorágine de esta consigna, Cecilia recuerda el supuesto propósito del libro: 
 
