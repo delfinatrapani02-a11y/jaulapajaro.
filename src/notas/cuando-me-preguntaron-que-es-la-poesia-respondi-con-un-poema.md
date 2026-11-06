@@ -6,7 +6,7 @@ fecha: 2026-11-05
 foto: /img/subidas/nota-inaugural.png
 foto_descripcion: ""
 epigrafe: mirar donde nadie mira
-consigna: ¿qué es la poesía para vos? mandanos tu respuesta al registro
+consigna: ""
 borrador: false
 ---
 “¿Qué es la poesía?” que pregunta tan general, abstracta e imposible para empezar la primera nota de Jaula Pájaro. Pero creo en el poder de la poesía, de los poemas y de los poetas para responderse a sí mismos. 
