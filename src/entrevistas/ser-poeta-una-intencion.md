@@ -8,7 +8,7 @@ fecha: 2026-11-09
 foto: /img/subidas/whatsapp-image-2026-10-21-at-13.57.19.jpeg
 foto_descripcion: Tamara Grosso, comunicadora, tallerista y poeta
 epigrafe: Gentileza de Tamara Grosso
-borrador: true
+borrador: false
 ---
 **[Tamara Grosso ](https://www.instagram.com/tamaraestaloca/)fue la primera en charlar con Jaula Pájaro: hablamos del estereotipo del poeta, del rol fundamental de los talleres de poesía, y de por qué un poema corto no es un poema fácil.** 
 
