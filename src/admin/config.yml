@@ -65,6 +65,15 @@ collections:
       - { label: "Bajada (ej: poeta · @usuario)", name: bajada, widget: string, required: false }
       - { label: Qué hace, name: rol, widget: string, required: false }
       - { label: "Usuario de Instagram (con @)", name: usuario, widget: string, required: false }
+      - label: Firma
+        name: firma
+        widget: select
+        required: false
+        hint: "Quién hizo la entrevista. Aparece al costado del texto, con la firma a mano."
+        options:
+          - { label: Delfi, value: delfi }
+          - { label: Sofi, value: sofi }
+          - { label: Las dos, value: las-dos }
       - { label: Formato, name: formato, widget: select, options: [escrita, video, podcast, audio] }
       - { label: "Duración (ej: 12 min)", name: duracion, widget: string, required: false }
       - { label: Fecha, name: fecha, widget: datetime, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
