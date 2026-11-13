@@ -29,7 +29,7 @@ seccion: archivo
   <aside>
     {%- set quienes = firma | firmas %}
     {%- if quienes.length %}
-    <span>{{ "hecha por" if tipo == "entrevistas" else "escrita por" }}</span>
+    <span>escrita por</span>
     <span class="firmas">
       {%- for f in quienes %}
       {%- if f.src %}<img class="firma" src="{{ f.src }}" alt="{{ f.nombre }}" loading="lazy">{% else %}<span class="tema">{{ f.nombre }}</span>{% endif %}

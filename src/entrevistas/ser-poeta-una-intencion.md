@@ -2,6 +2,7 @@
 titulo: Ser poeta, una intención
 bajada: Entrevista con Tamara Grosso
 usuario: ""
+firma: delfi
 formato: escrita
 duracion: 4 min de lectura
 fecha: 2026-11-09

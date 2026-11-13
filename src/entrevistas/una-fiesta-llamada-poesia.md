@@ -1,6 +1,7 @@
 ---
 titulo: Una fiesta llamada poesía
 bajada: Entrevista con La Perla Austral
+firma: sofi
 formato: escrita
 duracion: 4 min de lectura
 fecha: 2026-11-13
