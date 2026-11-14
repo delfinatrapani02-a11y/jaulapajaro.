@@ -52,6 +52,8 @@ Y dentro del lado del fútbol, no tanto, al inicio un poco, pero como una tomada
 
 Si yo escribo para poetas o para escritores, me aburriría demasiado. No quiero ponerme en el lugar del escritor popular, simplemente es un desafío el sentir que tengo que llegarle a mis amigos del barrio, porque si no me leen mis amigos del barrio, ¿quién me lee? los de Instagram no te leen, tengo 5.000 seguidores y vendo 400 libros. Si no me leen los vecinos, ¿quién me va a leer? si no cautivo a ese público, no cautivo a nadie. Si no cautivo a ese público, ¿para qué escribir? ¿para quién? ¿para qué publicar?
 
+> Si mis compañeros jugadores y compañeras jugadoras me leen, entonces yo siento que vale la pena.
+
 **¿Y sentís que en algún momento te corriste de esa intención de escribir para ese público que querías?** **¿O siempre lo tuviste bien marcado como norte?** 
 
 Ni siquiera era un norte. Yo le tenía que leer a mis compañeros en el vestuario. Una vez les leí un libro a mis compañeros y ellos me decían al principio “¿qué es eso?” Claro, eran unas cosas medio barrocas. Y después dije, “no claro, esto está más raro que un perro verde”. **Y ahí mismo, en los vestuarios, fui moldeando mi forma de escribir**. Porque después vas con ese barroco a un ciclo de poesía y dicen “oh, papá, mirá, qué loco”. Si yo escribo para mí, ¿quién se va a sentir identificado con lo que vos estás diciendo? ¿Con quién te estás comprometiendo? 
@@ -75,6 +77,8 @@ El primer libro lo publiqué cuando tenía 21, estaba ahí en plena ebullición.
 En realidad aprendés a jugar al fútbol casi después de que dejás de jugarlo. Hace muchos años que no juego y de repente miro un partido y digo “claro, esto era así”. Hice el curso de entrenador y entendí y dije “si hubiera sabido esto antes, hubiera sido mejor futbolista.” 
 
 **El fútbol y la poesía comparten algo que es lo experiencial: vas viviendo la poesía y vas viviendo el fútbol,** vas habitando la cancha y aprendiendo a moverte por la experiencia o por lo que te pueden enseñar algunas personas que se forjan como referentes. Lo mismo pasa en el mundo de la poesía. Pero no hacés un curso de técnico de poesía, por más tallerista que seas, no se enseña a escribir poesía. Vos podés enseñarle a un pibe a jugar al fútbol pero a escribir poesía no, podés darle algunas herramientas, decirle que lea a tales poetas, hacer tal ejercicio, probar escribir haikus, escribir con rima o sin rima. Pero enseñarle a alguien a escribir poesía es muy difícil. Y enseñarle a alguien a tirar un caño tampoco. Podés enseñarle algo tácticamente, **pero tirar un caño es como escribir un buen verso.** 
+
+> El fútbol y la poesía comparten algo que es lo experiencial: vas viviendo la poesía y vas viviendo el fútbol.
 
 **Mencionabas la importancia que tiene para vos encontrar el hecho poético en la narrativa. Con respecto a *Caballo*, tu última novela, ¿qué fue lo que te hizo decir “esto es una historia y tiene que ser un libro”?**
 
