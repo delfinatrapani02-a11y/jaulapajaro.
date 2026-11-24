@@ -34,8 +34,8 @@ En línea con uno de los propósitos de Jaula Pájaro —buscar poesía en todos
 Para ella, **la poesía es un lenguaje, una traducción que no necesita la palabra.** “La persona que comulga con la poesía, que tiene su sentimiento ahí, su sentido, suele encontrar momentos poéticos en lo rutinario constantemente. Todo el tiempo. **La persona que mira la vida a través del poético lo va a ver en todos lados**. De hecho, a veces es demasiado estímulo.”
 
 > La persona que mira la vida a través del poético lo va a ver en todos lados
->
-> **¿Cómo hacés, entonces, tus recortes de la realidad?**
+
+**¿Cómo hacés, entonces, tus recortes de la realidad?**
 
 Primero, tiene que ver con lo que ya no. Decir, “esto ya no me conmueve”. Ahí ya descartás un montón. Después tiene que ver con el crecimiento, en edad y en experiencia. Hay cosas en las que ya no creo más, no me interesan más, no tienen sentido real en mi cotidiano. Cuando tenés mucho estímulo es como si tuvieras abiertas muchas ventanas, entonces abarcás poquito cada cosa. Abrir menos ventanas es poder enfocarse más en lo que se quiere escribir, investigando, leyendo, preguntando, hablando con personas afines. Te da la posibilidad de bajar un poco la euforia de la sobreestimulación.
 
@@ -64,23 +64,3 @@ Creo que estamos en un momento tan difícil que cada uno hace lo que puede, y ha
  Lo llevo a un modo de ver la vida. **Es una bendición, un canal, pero también es una maldición**, porque realmente se siente mucho. Hay que ser muy consciente del poder que se tiene. Hay una gran responsabilidad emocional-afectiva, y es un poco caótico, porque a uno le duelen un montón de cosas, y así como el canal poético alivia, también es un poco terrible. 
 
 > **Es una bendición, un canal, pero también es una maldición**
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
