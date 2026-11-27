@@ -1,6 +1,6 @@
 ---
 titulo: Escribir para ganarle a la música
-bajada: Entrevista a Imanol Guerschman
+bajada: Entrevista con Imanol Guerschman
 usuario: "@guerschman"
 firma: delfi
 formato: escrita
